@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <a href="lesson.html" style="font-weight: bold; text-decoration: none;">← กลับหน้าจัดการบทเรียน</a>
+            <a href="dashboard.html" style="font-weight: bold; color: #4CAF50; text-decoration: none;">🏠 กลับหน้าหลัก (Dashboard)</a>
+        </div>
+
+        <div class="header">Lesson Form</div>
+        
+        <div class="form-input">
+            <div class="header-form">เลือกคอร์สเรียน</div>
+            <select class="form" name="course_id">
+                <option value="">-- กรุณาเลือกคอร์ส --</option>
+            </select>
+        </div>
+        <div class="form-input">
+            <div class="header-form">ลำดับบทเรียน (เช่น 1, 2, 3)</div>
+            <input class="form" name="order_number" type="number" placeholder="ระบุลำดับบทเรียน">
+        </div>
+        <div class="form-input">
+            <div class="header-form">ชื่อบทเรียน</div>
+            <input class="form" name="title" type="text" placeholder="กรอกชื่อบทเรียน">
+        </div>
+        <div class="form-input">
+            <div class="header-form">เนื้อหาบทเรียน</div>
+            <textarea class="form" name="content" placeholder="พิมพ์เนื้อหา..."></textarea>
+        </div>
+        
+        <div id="message" class="message"></div>
+        <div class="center">
+            <button onclick="submitData()" class="button">บันทึกข้อมูล</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/lesson-form.js"></script>
+</body>
+</html>

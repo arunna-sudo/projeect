@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .progress-list {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .progress-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #FF9800;
+        }
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .status-learning {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+        .status-completed {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .btn-success {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-success:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav style="background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; border: 1px solid #ddd;">
+            <a href="dashboard.html" style="text-decoration: none;">🏠 หน้าหลัก</a> |
+            <a href="course.html" style="text-decoration: none;">📚 คอร์ส</a> |
+            <a href="instructor.html" style="text-decoration: none;">👨‍🏫 ผู้สอน</a> |
+            <a href="lesson.html" style="text-decoration: none;">📝 บทเรียน</a> |
+            <a href="student.html" style="text-decoration: none;">👨‍🎓 ผู้เรียน</a> |
+            <a href="enrollment.html" style="text-decoration: none;">🔗 ลงทะเบียน</a> |
+            <a href="progress.html" style="text-decoration: none; font-weight: bold; color: #FF9800;">📈 การเรียน</a>
+        </nav>
+
+        <div class="header">จำลองการเรียน (Progress) 📈</div>
+        
+        <div class="form-input">
+            <div class="header-form">ใครกำลังเรียน? (Student)</div>
+            <select class="form" name="student_id">
+                <option value="">-- เลือกผู้เรียน --</option>
+            </select>
+        </div>
+        
+        <div class="form-input">
+            <div class="header-form">เรียนบทไหน? (Lesson)</div>
+            <select class="form" name="lesson_id">
+                <option value="">-- เลือกบทเรียน --</option>
+            </select>
+        </div>
+
+        <div class="form-input">
+            <div class="header-form">สถานะตอนเริ่ม</div>
+            <select class="form" name="is_completed">
+                <option value="false">เพิ่งเริ่มเรียน (ยังไม่จบ)</option>
+                <option value="true">เรียนจบแล้วทันที</option>
+            </select>
+        </div>
+        
+        <div id="message" class="message"></div>
+        <div class="center">
+            <button onclick="submitData()" class="button">บันทึกประวัติการเข้าเรียน</button>
+        </div>
+
+        <div class="progress-list">
+            <div class="header" style="font-size: 20px;">ประวัติการเรียนของทุกคน</div>
+            <div id="progress-data"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* บังคับให้เรียงแถวละ 3 กล่องพอดี ไม่ให้แหว่ง */
+        .dashboard-grid-fixed {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        /* กล่องแจ้งเตือนด้านล่างสุด */
+        .recent-activity {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            border-top: 3px solid #3c8dbc;
+        }
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .activity-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f4f4f4;
+            color: #555;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* ปรับสำหรับหน้าจอมือถือ/แท็บเล็ต */
+        @media (max-width: 1024px) {
+            .dashboard-grid-fixed { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .dashboard-grid-fixed { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">Dashboard <small style="color: #777; font-size: 15px; font-weight: normal;">ระบบจัดการคอร์สออนไลน์</small></h1>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card bg-blue">
+                    <div>
+                        <h3 id="count-courses">0</h3>
+                        <p>คอร์สทั้งหมด</p>
+                    </div>
+                    <div class="stat-icon">📚</div>
+                </div>
+                <div class="stat-card bg-green">
+                    <div>
+                        <h3 id="count-instructors">0</h3>
+                        <p>ผู้สอน</p>
+                    </div>
+                    <div class="stat-icon">👨‍🏫</div>
+                </div>
+                <div class="stat-card bg-orange">
+                    <div>
+                        <h3 id="count-students">0</h3>
+                        <p>นักเรียน</p>
+                    </div>
+                    <div class="stat-icon">👤</div>
+                </div>
+                <div class="stat-card bg-red">
+                    <div>
+                        <h3 id="count-lessons">0</h3>
+                        <p>บทเรียนทั้งหมด</p>
+                    </div>
+                    <div class="stat-icon">📝</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 20px; color: #333; font-size: 20px;">ทางลัดการจัดการ</h3>
+            
+            <div class="dashboard-grid-fixed">
+                <div class="menu-card card-course">
+                    <a href="course.html">
+                        <div class="menu-icon">📚</div>
+                        <div class="menu-title">จัดการคอร์ส</div>
+                        <div class="menu-desc">เพิ่ม แก้ไข ลบ คอร์สเรียน</div>
+                    </a>
+                </div>
+                <div class="menu-card card-instructor">
+                    <a href="instructor.html">
+                        <div class="menu-icon">👨‍🏫</div>
+                        <div class="menu-title">จัดการผู้สอน</div>
+                        <div class="menu-desc">บริหารจัดการรายชื่ออาจารย์</div>
+                    </a>
+                </div>
+                <div class="menu-card card-lesson">
+                    <a href="lesson.html">
+                        <div class="menu-icon">📝</div>
+                        <div class="menu-title">จัดการบทเรียน</div>
+                        <div class="menu-desc">เพิ่มเนื้อหาและลำดับบท</div>
+                    </a>
+                </div>
+                <div class="menu-card card-student">
+                    <a href="student.html">
+                        <div class="menu-icon">👩‍🎓</div>
+                        <div class="menu-title">จัดการผู้เรียน</div>
+                        <div class="menu-desc">บริหารจัดการข้อมูลนักเรียน</div>
+                    </a>
+                </div>
+                <div class="menu-card card-enroll">
+                    <a href="enrollment.html">
+                        <div class="menu-icon">🔗</div>
+                        <div class="menu-title">การลงทะเบียน</div>
+                        <div class="menu-desc">จับคู่นักเรียนเข้ากับคอร์สเรียน</div>
+                    </a>
+                </div>
+                <div class="menu-card card-progress">
+                    <a href="progress.html">
+                        <div class="menu-icon">📈</div>
+                        <div class="menu-title">ติดตามการเรียน</div>
+                        <div class="menu-desc">ดูความคืบหน้าการเรียนของนักเรียน</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3 style="margin-top: 0; color: #333; font-size: 18px; border-bottom: 2px solid #ecf0f5; padding-bottom: 10px;">📢 ประกาศ / ความเคลื่อนไหวล่าสุด</h3>
+                <ul class="activity-list">
+                    <li><span style="color: #00a65a;">●</span> ยินดีต้อนรับ นักเรียนทุกคน </li>
+                    <li><span style="color: #f39c12;">●</span> ระบบอัปเดตข้อมูลสถิติแบบ Real-time </li>
+                    <li><span style="color: #00c0ef;">●</span> สามารถจัดการข้อมูล ผู้สอน ผู้เรียน และคอร์สเรียน ได้ผ่านเมนูด้านซ้ายมือ</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

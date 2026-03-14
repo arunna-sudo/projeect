@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <a href="student.html" style="font-weight: bold; text-decoration: none;">← กลับหน้าจัดการผู้เรียน</a>
+            <a href="dashboard.html" style="font-weight: bold; color: #4CAF50; text-decoration: none;">🏠 กลับหน้าหลัก (Dashboard)</a>
+        </div>
+
+        <div class="header">Student Form</div>
+        
+        <div class="form-input">
+            <div class="header-form">ชื่อ</div>
+            <input class="form" name="firstname" type="text" placeholder="กรอกชื่อ">
+        </div>
+        <div class="form-input">
+            <div class="header-form">นามสกุล</div>
+            <input class="form" name="lastname" type="text" placeholder="กรอกนามสกุล">
+        </div>
+        <div class="form-input">
+            <div class="header-form">อีเมล</div>
+            <input class="form" name="email" type="text" placeholder="กรอกอีเมล">
+        </div>
+        
+        <div id="message" class="message"></div>
+        <div class="center">
+            <button onclick="submitData()" class="button">บันทึกข้อมูล</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/student-form.js"></script>
+</body>
+</html>

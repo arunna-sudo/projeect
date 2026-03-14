@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db_course
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: coursedb
+    ports:
+      - "8820:3306"
+    volumes:
+      - mysql_data_course:/var/lib/mysql
+    networks:
+      - course_network
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_course
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      UPLOAD_LIMIT: 64M
+    ports:
+      - "8181:80"
+    depends_on:
+      - db
+    networks:
+      - course_network
+    restart: always
+
+networks:
+  course_network:
+    driver: bridge
+
+volumes:
+  mysql_data_course:
+    driver: local

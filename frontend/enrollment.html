@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .enrollment-list {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .enrollment-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #2196F3;
+        }
+        .btn-delete {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav style="background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; border: 1px solid #ddd;">
+            <a href="dashboard.html" style="text-decoration: none;">🏠 หน้าหลัก</a> |
+            <a href="course.html" style="text-decoration: none;">📚 คอร์ส</a> |
+            <a href="instructor.html" style="text-decoration: none;">👨‍🏫 ผู้สอน</a> |
+            <a href="lesson.html" style="text-decoration: none;">📝 บทเรียน</a> |
+            <a href="student.html" style="text-decoration: none;">👨‍🎓 ผู้เรียน</a> |
+            <a href="enrollment.html" style="text-decoration: none; font-weight: bold; color: #2196F3;">🔗 ลงทะเบียน</a> |
+            <a href="progress.html" style="text-decoration: none;">📈 การเรียน</a>
+        </nav>
+
+        <div class="header">ลงทะเบียนเรียน 🔗</div>
+        
+        <div class="form-input">
+            <div class="header-form">เลือกผู้เรียน (Student)</div>
+            <select class="form" name="student_id">
+                <option value="">-- กรุณาเลือกผู้เรียน --</option>
+            </select>
+        </div>
+        
+        <div class="form-input">
+            <div class="header-form">เลือกคอร์สเรียน (Course)</div>
+            <select class="form" name="course_id">
+                <option value="">-- กรุณาเลือกคอร์สเรียน --</option>
+            </select>
+        </div>
+        
+        <div id="message" class="message"></div>
+        <div class="center">
+            <button onclick="submitData()" class="button">บันทึกการลงทะเบียน</button>
+        </div>
+
+        <div class="enrollment-list">
+            <div class="header" style="font-size: 20px;">รายชื่อผู้ลงทะเบียนทั้งหมด</div>
+            <div id="enrollment-data"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/enrollment.js"></script>
+</body>
+</html>

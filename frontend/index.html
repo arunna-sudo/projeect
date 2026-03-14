@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 LMS Portal</div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li class="active"><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ฟอร์มข้อมูลคอร์สเรียน <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม/แก้ไขรายละเอียดคอร์ส</small>
+                </h1>
+            </div>
+
+            <div style="display: flex; gap: 25px; align-items: flex-start;">
+                
+                <div class="content-box" style="flex: 2;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; font-size: 18px;">📝 กรอกข้อมูลคอร์ส</h3>
+                    
+                    <div class="form-group">
+                        <label>ชื่อคอร์ส (Course Title)</label>
+                        <input class="form-control" name="title" type="text" placeholder="กรอกชื่อคอร์ส เช่น Basic HTML">
+                    </div>
+
+                    <div class="form-group">
+                        <label>รายละเอียด (Description)</label>
+                        <textarea class="form-control" name="description" rows="6" placeholder="พิมพ์รายละเอียดเนื้อหาของคอร์ส..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ผู้สอน (Instructor)</label>
+                        <select class="form-control" name="instructor_id">
+                            <option value="">-- เลือกผู้สอน --</option>
+                        </select>
+                    </div>
+
+                    <div id="message" style="margin-bottom: 15px; font-weight: bold; text-align: center;"></div>
+
+                    <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; text-align: right;">
+                        <a href="course.html" class="btn-back">⬅️ ยกเลิก / กลับ</a>
+                        <button onclick="submitData()" class="btn-submit">💾 บันทึกข้อมูล</button>
+                    </div>
+                </div>
+
+                <div class="content-box" style="flex: 1; background-color: #f9f9f9; border-top-color: #f39c12;">
+                    <h3 style="margin-top: 0; font-size: 16px; color: #e67e22;">💡 คำแนะนำการกรอก</h3>
+                    <ul style="padding-left: 20px; font-size: 14px; color: #666; line-height: 1.6;">
+                        <li><b>ชื่อคอร์ส:</b> ควรมีความยาวไม่เกิน 100 ตัวอักษร เพื่อให้แสดงผลสวยงาม</li>
+                        <li><b>รายละเอียด:</b> ระบุหัวข้อหลักที่จะสอน หรือจุดเด่นของคอร์ส</li>
+                        <li><b>ผู้สอน:</b> หากไม่พบรายชื่ออาจารย์ ให้ไปเพิ่มที่เมนู <b>"จัดการผู้สอน"</b> ก่อนครับ</li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p style="font-size: 13px; color: #888;">* ทุกช่องจำเป็นต้องกรอกข้อมูลให้ครบถ้วนก่อนบันทึก</p>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

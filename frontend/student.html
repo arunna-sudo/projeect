@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav style="background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; border: 1px solid #ddd;">
+    <a href="dashboard.html">🏠 หน้าหลัก</a> |
+    <a href="course.html">📚 คอร์ส</a> |
+    <a href="instructor.html">👨‍🏫 ผู้สอน</a> |
+    <a href="lesson.html">📝 บทเรียน</a> |
+    <a href="student.html">👨‍🎓 ผู้เรียน</a> |
+    <a href="enrollment.html">🔗 ลงทะเบียน</a> |
+    <a href="progress.html">📈 การเรียน</a>
+</nav>
+        <a href="course.html">← กลับไปหน้าจัดการคอร์ส</a>
+        <div class="header">จัดการรายชื่อผู้เรียน</div>
+        <a href="student-form.html">+ เพิ่มผู้เรียนใหม่</a>
+        <div id="student"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/student.js"></script>
+</body>
+</html>
