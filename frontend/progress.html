@@ -6,11 +6,6 @@
     <title>Progress Tracking</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .progress-list {
-            margin-top: 30px;
-            border-top: 2px solid #eee;
-            padding-top: 20px;
-        }
         .progress-item {
             background-color: #f9f9f9;
             padding: 15px;
@@ -43,59 +38,83 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        .btn-success:hover {
-            background-color: #45a049;
-        }
+        .btn-success:hover { background-color: #45a049; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <nav style="background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; border: 1px solid #ddd;">
-            <a href="dashboard.html" style="text-decoration: none;">🏠 หน้าหลัก</a> |
-            <a href="course.html" style="text-decoration: none;">📚 คอร์ส</a> |
-            <a href="instructor.html" style="text-decoration: none;">👨‍🏫 ผู้สอน</a> |
-            <a href="lesson.html" style="text-decoration: none;">📝 บทเรียน</a> |
-            <a href="student.html" style="text-decoration: none;">👨‍🎓 ผู้เรียน</a> |
-            <a href="enrollment.html" style="text-decoration: none;">🔗 ลงทะเบียน</a> |
-            <a href="progress.html" style="text-decoration: none; font-weight: bold; color: #FF9800;">📈 การเรียน</a>
-        </nav>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
 
-        <div class="header">จำลองการเรียน (Progress) 📈</div>
-        
-        <div class="form-input">
-            <div class="header-form">ใครกำลังเรียน? (Student)</div>
-            <select class="form" name="student_id">
-                <option value="">-- เลือกผู้เรียน --</option>
-            </select>
-        </div>
-        
-        <div class="form-input">
-            <div class="header-form">เรียนบทไหน? (Lesson)</div>
-            <select class="form" name="lesson_id">
-                <option value="">-- เลือกบทเรียน --</option>
-            </select>
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+         <ul class="sidebar-menu">
+    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
+        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+    </li>
+</ul>
         </div>
 
-        <div class="form-input">
-            <div class="header-form">สถานะตอนเริ่ม</div>
-            <select class="form" name="is_completed">
-                <option value="false">เพิ่งเริ่มเรียน (ยังไม่จบ)</option>
-                <option value="true">เรียนจบแล้วทันที</option>
-            </select>
-        </div>
-        
-        <div id="message" class="message"></div>
-        <div class="center">
-            <button onclick="submitData()" class="button">บันทึกประวัติการเข้าเรียน</button>
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ติดตามการเรียน <small style="color: #777; font-size: 15px; font-weight: normal;">ดูความคืบหน้าการเรียนของนักเรียน</small>
+                </h1>
+            </div>
+
+            <div style="display: flex; gap: 25px; align-items: flex-start;">
+
+                <!-- ฟอร์มบันทึกการเรียน -->
+                <div class="content-box" style="flex: 1;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 บันทึกการเข้าเรียน</h3>
+
+                    <div class="form-group">
+                        <label>ใครกำลังเรียน? (Student)</label>
+                        <select class="form-control" name="student_id">
+                            <option value="">-- เลือกผู้เรียน --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>เรียนบทไหน? (Lesson)</label>
+                        <select class="form-control" name="lesson_id">
+                            <option value="">-- เลือกบทเรียน --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>สถานะตอนเริ่ม</label>
+                        <select class="form-control" name="is_completed">
+                            <option value="false">เพิ่งเริ่มเรียน (ยังไม่จบ)</option>
+                            <option value="true">เรียนจบแล้วทันที</option>
+                        </select>
+                    </div>
+
+                    <div id="message" class="message"></div>
+
+                    <div style="text-align: right; margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <button onclick="submitData()" class="btn-submit">💾 บันทึกประวัติการเข้าเรียน</button>
+                    </div>
+                </div>
+
+                <!-- ประวัติการเรียน -->
+                <div class="content-box" style="flex: 2;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📋 ประวัติการเรียนของทุกคน</h3>
+                    <div id="progress-data"></div>
+                </div>
+
+            </div>
         </div>
 
-        <div class="progress-list">
-            <div class="header" style="font-size: 20px;">ประวัติการเรียนของทุกคน</div>
-            <div id="progress-data"></div>
-        </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="js/progress.js"></script>
+    <script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script>checkLogin('teacher')</script
 </body>
 </html>

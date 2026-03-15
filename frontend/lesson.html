@@ -6,24 +6,43 @@
     <title>Lesson Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <div class="container">
-        <nav style="background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; border: 1px solid #ddd;">
-    <a href="dashboard.html">🏠 หน้าหลัก</a> |
-    <a href="course.html">📚 คอร์ส</a> |
-    <a href="instructor.html">👨‍🏫 ผู้สอน</a> |
-    <a href="lesson.html">📝 บทเรียน</a> |
-    <a href="student.html">👨‍🎓 ผู้เรียน</a> |
-    <a href="enrollment.html">🔗 ลงทะเบียน</a> |
-    <a href="progress.html">📈 การเรียน</a>
-</nav>
-        <a href="course.html">← กลับไปหน้าจัดการคอร์ส</a>
-        <div class="header">จัดการบทเรียนทั้งหมด</div>
-        <a href="lesson-form.html">+ เพิ่มบทเรียนใหม่</a>
-        <div id="lesson"></div>
-    </div>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
 
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+           <ul class="sidebar-menu">
+    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
+        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+    </li>
+</ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    จัดการบทเรียน <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม แก้ไข ลบ บทเรียนทั้งหมด</small>
+                </h1>
+            </div>
+
+            <div class="content-box">
+                <a href="lesson-form.html" class="btn-add"> ➕ เพิ่มบทเรียนใหม่</a>
+                <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">รายชื่อบทเรียนทั้งหมด</h3>
+                <div id="lesson"></div>
+            </div>
+        </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="js/lesson.js"></script>
+    <script src="js/auth.js"></script>
+<script src="js/lesson.js"></script>
+<script>checkLogin('teacher')</script>
 </body>
 </html>

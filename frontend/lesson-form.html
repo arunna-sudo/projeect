@@ -6,41 +6,89 @@
     <title>Lesson Form</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <div class="container">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <a href="lesson.html" style="font-weight: bold; text-decoration: none;">← กลับหน้าจัดการบทเรียน</a>
-            <a href="dashboard.html" style="font-weight: bold; color: #4CAF50; text-decoration: none;">🏠 กลับหน้าหลัก (Dashboard)</a>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
+        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+    </li>
+</ul>
+            </ul>
         </div>
 
-        <div class="header">Lesson Form</div>
-        
-        <div class="form-input">
-            <div class="header-form">เลือกคอร์สเรียน</div>
-            <select class="form" name="course_id">
-                <option value="">-- กรุณาเลือกคอร์ส --</option>
-            </select>
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ข้อมูลบทเรียน <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม/แก้ไขรายละเอียดบทเรียน</small>
+                </h1>
+            </div>
+
+            <div style="display: flex; gap: 25px; align-items: flex-start;">
+
+                <!-- ฟอร์ม -->
+                <div class="content-box" style="flex: 2;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 กรอกข้อมูลบทเรียน</h3>
+
+                    <div class="form-group">
+                        <label>เลือกคอร์สเรียน</label>
+                        <select class="form-control" name="course_id">
+                            <option value="">-- กรุณาเลือกคอร์ส --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ลำดับบทเรียน (เช่น 1, 2, 3)</label>
+                        <input class="form-control" name="order_number" type="number" placeholder="ระบุลำดับบทเรียน">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ชื่อบทเรียน</label>
+                        <input class="form-control" name="title" type="text" placeholder="กรอกชื่อบทเรียน">
+                    </div>
+
+                    <div class="form-group">
+                        <label>เนื้อหาบทเรียน</label>
+                        <textarea class="form-control" name="content" rows="5" placeholder="พิมพ์เนื้อหา..."></textarea>
+                    </div>
+
+                    <div id="message" class="message"></div>
+
+                    <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; text-align: right;">
+                        <a href="lesson.html" class="btn-back">⬅️ ยกเลิก / กลับ</a>
+                        <button onclick="submitData()" class="btn-submit">💾 บันทึกข้อมูล</button>
+                    </div>
+                </div>
+
+                <!-- คำแนะนำ -->
+                <div class="content-box" style="flex: 1; background-color: #f9f9f9; border-top-color: #f39c12;">
+                    <h3 style="margin-top: 0; font-size: 16px; color: #e67e22;">💡 คำแนะนำการกรอก</h3>
+                    <ul style="padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
+                        <li><b>คอร์สเรียน:</b> เลือกคอร์สที่บทเรียนนี้สังกัดอยู่</li>
+                        <li><b>ลำดับบทเรียน:</b> ระบุว่าเป็นบทที่เท่าไหร่ เช่น 1, 2, 3</li>
+                        <li><b>ชื่อบทเรียน:</b> ตั้งชื่อให้สื่อถึงเนื้อหา</li>
+                        <li><b>เนื้อหา:</b> อธิบายสิ่งที่จะสอนในบทนี้</li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p style="font-size: 13px; color: #888;">* ทุกช่องจำเป็นต้องกรอกให้ครบถ้วน</p>
+                </div>
+
+            </div>
         </div>
-        <div class="form-input">
-            <div class="header-form">ลำดับบทเรียน (เช่น 1, 2, 3)</div>
-            <input class="form" name="order_number" type="number" placeholder="ระบุลำดับบทเรียน">
-        </div>
-        <div class="form-input">
-            <div class="header-form">ชื่อบทเรียน</div>
-            <input class="form" name="title" type="text" placeholder="กรอกชื่อบทเรียน">
-        </div>
-        <div class="form-input">
-            <div class="header-form">เนื้อหาบทเรียน</div>
-            <textarea class="form" name="content" placeholder="พิมพ์เนื้อหา..."></textarea>
-        </div>
-        
-        <div id="message" class="message"></div>
-        <div class="center">
-            <button onclick="submitData()" class="button">บันทึกข้อมูล</button>
-        </div>
+
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="js/lesson-form.js"></script>
+    <script src="js/auth.js"></script>
+<script src="js/lesson-form.js"></script>
+<script>checkLogin('teacher')</script>
 </body>
 </html>

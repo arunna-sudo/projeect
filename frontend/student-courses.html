@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คอร์สของฉัน</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li><a href="student-dashboard.html">📊 หน้าหลัก</a></li>
+                <li class="active"><a href="student-courses.html">📚 คอร์สของฉัน</a></li>
+                <li><a href="student-progress.html">📈 ความคืบหน้า</a></li>
+                <li style="border-top: 1px solid #3d4f56;">
+                    <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    คอร์สของฉัน <small style="color: #777; font-size: 15px; font-weight: normal;">คอร์สที่ลงทะเบียนไว้ทั้งหมด</small>
+                </h1>
+            </div>
+
+            <div class="content-box">
+                <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📚 รายชื่อคอร์สที่ลงทะเบียน</h3>
+                <div id="my-courses"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/student-courses.js"></script>
+    <script>checkLogin('student')</script>
+</body>
+</html>

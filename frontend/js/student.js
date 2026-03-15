@@ -12,12 +12,18 @@ const loadData = async () => {
         
         for (let i = 0; i < response.data.length; i++) {
             let student = response.data[i];
-            htmlData += `<div>
-                ${student.id}. ${student.firstname} ${student.lastname} (${student.email})
-                <a href="student-form.html?id=${student.id}"><button>Edit</button></a>
-                <button class="delete" data-id="${student.id}">Delete</button>
+            htmlData += `<div class="data-item">
+                <div>
+                    <strong>${i + 1}. ${student.firstname} ${student.lastname}</strong>
+                    <span style="color: #7f8c8d; font-size: 14px; margin-left: 10px;">(✉️ ${student.email})</span>
+                </div>
+                <div>
+                    <a href="student-form.html?id=${student.id}" class="btn-edit" style="text-decoration: none;">✏️ แก้ไข</a>
+                    <button class="delete btn-delete" data-id="${student.id}">🗑️ ลบ</button>
+                </div>
             </div>`
         }
+
         htmlData += '</div>';
         studentDOM.innerHTML = htmlData;
 
@@ -25,12 +31,14 @@ const loadData = async () => {
         const deleteDOMs = document.getElementsByClassName('delete');
         for (let i = 0; i < deleteDOMs.length; i++) {
             deleteDOMs[i].addEventListener('click', async (event) => {
-                const id = event.target.dataset.id;
-                try {
-                    await axios.delete(`${BASE_URL}/students/${id}`);
-                    loadData(); // โหลดข้อมูลใหม่หลังจากลบสำเร็จ
-                } catch (error) {
-                    console.error('Error deleting student:', error);
+                if (confirm('ต้องการลบผู้เรียนคนนี้ใช่หรือไม่?')) {
+                    const id = event.target.dataset.id;
+                    try {
+                        await axios.delete(`${BASE_URL}/students/${id}`);
+                        loadData(); // โหลดข้อมูลใหม่หลังจากลบสำเร็จ
+                    } catch (error) {
+                        console.error('Error deleting student:', error);
+                    }
                 }
             });
         }

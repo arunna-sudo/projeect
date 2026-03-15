@@ -6,34 +6,79 @@
     <title>Instructor Form</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <div class="container">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <a href="instructor.html" style="font-weight: bold; text-decoration: none;">← กลับหน้าจัดการผู้สอน</a>
-            <a href="dashboard.html" style="font-weight: bold; color: #4CAF50; text-decoration: none;">🏠 กลับหน้าหลัก (Dashboard)</a>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+         <ul class="sidebar-menu">
+    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
+        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+    </li>
+</ul>
         </div>
 
-        <div class="header">Instructor Form</div>
-        
-        <div class="form-input">
-            <div class="header-form">ชื่อ</div>
-            <input class="form" name="firstname" type="text" placeholder="กรอกชื่อ">
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ข้อมูลผู้สอน <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม/แก้ไขรายละเอียดผู้สอน</small>
+                </h1>
+            </div>
+
+            <div style="display: flex; gap: 25px; align-items: flex-start;">
+
+                <!-- ฟอร์ม -->
+                <div class="content-box" style="flex: 2;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 กรอกข้อมูลผู้สอน</h3>
+
+                    <div class="form-group">
+                        <label>ชื่อ (Firstname)</label>
+                        <input class="form-control" name="firstname" type="text" placeholder="กรอกชื่อ">
+                    </div>
+
+                    <div class="form-group">
+                        <label>นามสกุล (Lastname)</label>
+                        <input class="form-control" name="lastname" type="text" placeholder="กรอกนามสกุล">
+                    </div>
+
+                    <div class="form-group">
+                        <label>อีเมล (Email)</label>
+                        <input class="form-control" name="email" type="text" placeholder="กรอกอีเมล">
+                    </div>
+
+                    <div id="message" class="message"></div>
+
+                    <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; text-align: right;">
+                        <a href="instructor.html" class="btn-back">⬅️ ยกเลิก / กลับ</a>
+                        <button onclick="submitData()" class="btn-submit">💾 บันทึกข้อมูล</button>
+                    </div>
+                </div>
+
+                <!-- คำแนะนำ -->
+                <div class="content-box" style="flex: 1; background-color: #f9f9f9; border-top-color: #f39c12;">
+                    <h3 style="margin-top: 0; font-size: 16px; color: #e67e22;">💡 คำแนะนำการกรอก</h3>
+                    <ul style="padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
+                        <li><b>ชื่อ-นามสกุล:</b> กรอกชื่อจริงของผู้สอน</li>
+                        <li><b>อีเมล:</b> ใช้สำหรับติดต่อ และต้องไม่ซ้ำกับที่มีอยู่แล้ว</li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p style="font-size: 13px; color: #888;">* ทุกช่องจำเป็นต้องกรอกให้ครบถ้วน</p>
+                </div>
+
+            </div>
         </div>
-        <div class="form-input">
-            <div class="header-form">นามสกุล</div>
-            <input class="form" name="lastname" type="text" placeholder="กรอกนามสกุล">
-        </div>
-        <div class="form-input">
-            <div class="header-form">อีเมล</div>
-            <input class="form" name="email" type="text" placeholder="กรอกอีเมล">
-        </div>
-        
-        <div id="message" class="message"></div>
-        <div class="center">
-            <button onclick="submitData()" class="button">บันทึกข้อมูล</button>
-        </div>
+
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="js/instructor-form.js"></script> </body>
+    <script src="js/auth.js"></script>
+<script src="js/instructor-form.js"></script>
+<script>checkLogin('teacher')</script>
+</body>
 </html>

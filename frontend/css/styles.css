@@ -206,3 +206,208 @@ body {
     text-align: left;
     display: inline-block; /* ให้ list อยู่กึ่งกลางตามกล่อง */
 }
+/* --- สไตล์สำหรับหน้าที่ใช้ .container (ไม่มี Sidebar) --- */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* หัวข้อฟอร์ม */
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3c8dbc;
+    padding-bottom: 10px;
+}
+
+/* แถวของ form */
+.form-input {
+    margin-bottom: 15px;
+}
+
+.header-form {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input และ Textarea */
+.form {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form:focus {
+    border-color: #3c8dbc;
+    outline: none;
+    box-shadow: 0 0 5px rgba(60,141,188,0.3);
+}
+
+textarea.form {
+    height: 100px;
+    resize: vertical;
+}
+
+/* ปุ่มหลัก */
+.button {
+    background-color: #3c8dbc;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #367fa9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* จัดปุ่มให้อยู่กึ่งกลาง */
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- ปรับแต่ง header section --- */
+.header-section {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid #3c8dbc;
+}
+/* --- Enrollment Items --- */
+.enrollment-item {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #3c8dbc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.enrollment-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.enrollment-item strong {
+    color: #333;
+}
+
+.enrollment-item small {
+    color: #999;
+    font-size: 12px;
+}
+
+.btn-cancel {
+    background-color: #dd4b39;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.btn-cancel:hover {
+    background-color: #c0392b;
+}
+
+/* --- Progress Items --- */
+.progress-item {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #ff851b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.progress-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.status-learning {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.status-completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.btn-success {
+    background-color: #00a65a;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.btn-success:hover {
+    background-color: #008d4c;
+}
+
+/* --- ปุ่มยกเลิกการลงทะเบียน --- */
+.btn-cancel {
+    background-color: white;
+    color: #dd4b39;
+    border: 2px solid #dd4b39;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #dd4b39;
+    color: white;
+    transform: scale(1.05);
+}

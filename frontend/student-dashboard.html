@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="student-dashboard.html">📊 หน้าหลัก</a></li>
+                <li><a href="student-courses.html">📚 คอร์สของฉัน</a></li>
+                <li><a href="student-progress.html">📈 ความคืบหน้า</a></li>
+                <li><a href="#" onclick="logout()">🚪 ออกจากระบบ</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ยินดีต้อนรับ 👋 <span id="student-name" style="color: #3c8dbc;"></span>
+                    <small style="color: #777; font-size: 15px; font-weight: normal; display: block; margin-top: 5px;">ระบบเรียนออนไลน์</small>
+                </h1>
+            </div>
+
+            <!-- stat cards -->
+            <div class="stat-grid">
+                <div class="stat-card bg-blue">
+                    <div>
+                        <h3 id="count-enrolled">0</h3>
+                        <p>คอร์สที่ลงทะเบียน</p>
+                    </div>
+                    <div class="stat-icon">📚</div>
+                </div>
+                <div class="stat-card bg-green">
+                    <div>
+                        <h3 id="count-completed">0</h3>
+                        <p>บทเรียนที่เรียนจบ</p>
+                    </div>
+                    <div class="stat-icon">✅</div>
+                </div>
+                <div class="stat-card bg-orange">
+                    <div>
+                        <h3 id="count-inprogress">0</h3>
+                        <p>บทเรียนที่กำลังเรียน</p>
+                    </div>
+                    <div class="stat-icon">⏳</div>
+                </div>
+            </div>
+
+            <!-- คอร์สที่ลงทะเบียน -->
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #333;">📚 คอร์สที่ฉันลงทะเบียนไว้</h3>
+            <div class="content-box">
+                <div id="my-courses"></div>
+            </div>
+
+            <!-- ความคืบหน้าล่าสุด -->
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #333;">📈 ความคืบหน้าการเรียนล่าสุด</h3>
+            <div class="content-box">
+                <div id="my-progress"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/student-dashboard.js"></script>
+    <script>checkLogin('student')</script>
+</body>
+</html>

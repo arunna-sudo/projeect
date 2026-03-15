@@ -45,14 +45,13 @@ const loadEnrollments = async () => {
         
         for (let i = 0; i < response.data.length; i++) {
             let enroll = response.data[i];
-            // สังเกตว่าเราใช้ firstname, lastname, course_title ที่ได้มาจากคำสั่ง JOIN ใน Backend ได้เลย
             htmlData += `<div class="enrollment-item">
                 <div>
                     <strong>นักเรียน:</strong> ${enroll.firstname} ${enroll.lastname} <br>
                     <strong>ลงเรียนคอร์ส:</strong> ${enroll.course_title} <br>
                     <small style="color: gray;">วันที่ลงทะเบียน: ${new Date(enroll.enrolled_at).toLocaleString('th-TH')}</small>
                 </div>
-                <button class="delete" data-id="${enroll.id}">ยกเลิกการลงทะเบียน</button>
+                <button class="delete btn-cancel" data-id="${enroll.id}">🗑️ ยกเลิกการลงทะเบียน</button>
             </div>`
         }
         
@@ -108,7 +107,6 @@ const submitData = async () => {
             throw { message: 'ข้อมูลไม่ครบถ้วน', errors: errors }
         }
 
-        // ยิง API บันทึกข้อมูล
         await axios.post(`${BASE_URL}/enrollments`, enrollData);
         
         messageDOM.innerText = 'ลงทะเบียนเรียนสำเร็จ!';
@@ -118,8 +116,7 @@ const submitData = async () => {
         studentDOM.value = '';
         courseDOM.value = '';
 
-        // รีเฟรชรายการด้านล่างใหม่ทันที
-        loadEnrollments();
+        loadEnrollments(); // รีเฟรชรายการด้านล่างใหม่ทันที
 
     } catch (error) {
         console.log('error:', error);

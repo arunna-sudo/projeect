@@ -11,15 +11,18 @@
         
         <div class="sidebar">
             <div class="sidebar-header">🎓 LMS Portal</div>
-            <ul class="sidebar-menu">
-                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
-                <li class="active"><a href="course.html">📚 จัดการคอร์ส</a></li>
-                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
-                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
-                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
-                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
-                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
-            </ul>
+         <ul class="sidebar-menu">
+    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
+        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+    </li>
+</ul>
         </div>
 
         <div class="main-content">
@@ -76,6 +79,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/auth.js"></script>
+<script src="js/index.js"></script>
+<script>checkLogin('teacher')</script>
 </body>
 </html>
