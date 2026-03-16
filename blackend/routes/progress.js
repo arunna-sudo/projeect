@@ -87,5 +87,18 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ message: 'Error updating progress', error: error.message });
     }
 });
-
+// DELETE /progress/:id - ลบประวัติการเรียนที่กดผิด
+router.delete('/:id', async (req, res) => {
+    try {
+        let id = req.params.id;
+        const result = await req.conn.query('DELETE FROM progress WHERE id = ?', id);
+        if (result[0].affectedRows == 0) {
+            return res.status(404).json({ message: 'ไม่พบข้อมูลประวัติการเรียน' });
+        }
+        res.json({ message: 'ลบประวัติการเรียนสำเร็จ', id: id });
+    } catch (error) {
+        console.error('Error deleting progress:', error.message);
+        res.status(500).json({ message: 'Error deleting progress', error: error.message });
+    }
+});
 module.exports = router;

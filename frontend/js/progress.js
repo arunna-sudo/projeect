@@ -81,6 +81,7 @@ const loadCourseLessons = async () => {
     }
 }
 
+
 // 3. โหลดประวัติการเรียนทั้งหมดมาแสดง
 const loadProgress = async () => {
     try {
@@ -101,14 +102,19 @@ const loadProgress = async () => {
                 ? `จบเมื่อ: ${new Date(prog.completed_at).toLocaleString('th-TH')}`
                 : `เริ่มเรียนเมื่อไม่มีข้อมูล`; // ถ้ายังไม่จบ จะไม่มีเวลา completed_at
             
+            // เพิ่มปุ่มแก้ไขสถานะให้กลับไปมาได้ และเพิ่มปุ่มลบ 
             htmlData += `<div class="progress-item">
                 <div>
                     <strong>ผู้เรียน:</strong> ${prog.firstname} ${prog.lastname} <br>
                     <strong>บทเรียน:</strong> ${prog.lesson_title} <br>
                     ${statusBadge} <small style="color: gray; margin-left: 10px;">${prog.is_completed ? dateText : ''}</small>
                 </div>
-                <div>
-                    ${!prog.is_completed ? `<button class="btn-success update-btn" data-id="${prog.id}">✅ กดเรียนจบ</button>` : ''}
+                <div style="display: flex; gap: 5px;">
+                    ${!prog.is_completed 
+                        ? `<button class="btn-success update-btn" data-id="${prog.id}" data-status="true">✅ กดเรียนจบ</button>` 
+                        : `<button class="btn-back update-btn" data-id="${prog.id}" data-status="false" style="margin: 0; padding: 8px 12px; font-size: 13px; border: none; cursor: pointer; border-radius: 4px; background-color: #f39c12; color: white;">🔄 แก้เป็นกำลังเรียน</button>`}
+                    
+                    <button class="btn-delete delete-btn" data-id="${prog.id}" style="padding: 8px 12px; font-size: 13px; border: none; cursor: pointer; border-radius: 4px;">🗑️ ลบ</button>
                 </div>
             </div>`
         }
@@ -119,14 +125,15 @@ const loadProgress = async () => {
         
         progressDOM.innerHTML = htmlData;
 
-        // ผูก event ปุ่ม "กดเรียนจบ" (อัปเดตสถานะผ่าน PUT)
+        // ผูก ปุ่ม "อัปเดตสถานะ" (รองรับทั้งกดจบและกดย้อนกลับ)
         const updateBtns = document.getElementsByClassName('update-btn');
         for (let i = 0; i < updateBtns.length; i++) {
             updateBtns[i].addEventListener('click', async (event) => {
                 const id = event.target.dataset.id;
+                const newStatus = event.target.dataset.status === 'true'; // ดึงค่าว่าจะเป็น true หรือ false
                 try {
-                    // ส่งข้อมูลไปอัปเดตว่า is_completed เป็น true
-                    await axios.put(`${BASE_URL}/progress/${id}`, { is_completed: true });
+                    // ส่งข้อมูลไปอัปเดตสถานะใหม่
+                    await axios.put(`${BASE_URL}/progress/${id}`, { is_completed: newStatus });
                     loadProgress(); // โหลดข้อมูลใหม่หลังจากอัปเดตสำเร็จ
                 } catch (error) {
                     console.error('Error updating progress:', error);
@@ -134,6 +141,24 @@ const loadProgress = async () => {
                 }
             });
         }
+
+        //  ผูก ปุ่ม "ลบ" 
+        const deleteBtns = document.getElementsByClassName('delete-btn');
+        for (let i = 0; i < deleteBtns.length; i++) {
+            deleteBtns[i].addEventListener('click', async (event) => {
+                if (confirm('ต้องการลบประวัติการเรียนนี้ใช่หรือไม่?')) {
+                    const id = event.target.dataset.id;
+                    try {
+                        await axios.delete(`${BASE_URL}/progress/${id}`);
+                        loadProgress(); // โหลดข้อมูลใหม่หลังจากลบสำเร็จ
+                    } catch (error) {
+                        console.error('Error deleting progress:', error);
+                        alert('เกิดข้อผิดพลาดในการลบ');
+                    }
+                }
+            });
+        }
+
     } catch (error) {
         console.error('Error fetching progress:', error);
     }

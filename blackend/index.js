@@ -139,29 +139,53 @@ app.put('/courses/:id', async (req, res) => {
     }
 });
 
-// path = DELETE /courses/:id สำหรับลบคอร์สที่มี id ตรงกับ :id
+// path = DELETE /courses/:id สำหรับลบคอร์สที่มี id ตรงกับ :id (แบบลบข้อมูลที่เกี่ยวข้องทั้งหมด)
+
 app.delete('/courses/:id', async (req, res) => {
     try {
-        let id = req.params.id;
-        const result = await conn.query('DELETE FROM courses WHERE id = ?', id);
+        let courseId = req.params.id;
+
+        // 1. ลบประวัติการเรียน (progress) ที่ผูกกับบทเรียนในคอร์สนี้
+        await req.conn.query(`
+            DELETE p FROM progress p 
+            JOIN lessons l ON p.lesson_id = l.id 
+            WHERE l.course_id = ?
+        `, [courseId]);
+
+        // 2. ลบผลสอบและข้อสอบ (quizzes & quiz_results) ที่ผูกกับบทเรียนในคอร์สนี้
+        await req.conn.query(`
+            DELETE qr FROM quiz_results qr
+            JOIN quizzes q ON qr.quiz_id = q.id
+            JOIN lessons l ON q.lesson_id = l.id
+            WHERE l.course_id = ?
+        `, [courseId]);
+
+        await req.conn.query(`
+            DELETE q FROM quizzes q
+            JOIN lessons l ON q.lesson_id = l.id
+            WHERE l.course_id = ?
+        `, [courseId]);
+
+        // 3. ลบบทเรียน (lessons) ในคอร์สนี้
+        await req.conn.query('DELETE FROM lessons WHERE course_id = ?', [courseId]);
+
+        // 4. ลบการลงทะเบียน (enrollments) ในคอร์สนี้
+        await req.conn.query('DELETE FROM enrollments WHERE course_id = ?', [courseId]);
+
+        // 5. ลบตัวคอร์สเรียน (courses) สุดท้าย
+        const result = await req.conn.query('DELETE FROM courses WHERE id = ?', [courseId]);
+
         if (result[0].affectedRows == 0) {
-            return res.status(404).json({
-                message: 'Course not found'
-            });
+            return res.status(404).json({ message: 'ไม่พบข้อมูลคอร์สเรียน' });
         }
-        res.json({
-            message: 'Course deleted successfully',
-            id: id
-        });
+
+        res.json({ message: 'ลบคอร์สและข้อมูลที่เกี่ยวข้องสำเร็จ' });
+
     } catch (error) {
-        console.error('Error deleting course:', error.message);
-        res.status(500).json({
-            message: 'Error deleting course',
-            error: error.message
-        });
+        console.error('Error deleting course cascade:', error.message);
+        res.status(500).json({ message: 'Error deleting course', error: error.message });
     }
 });
-
 
 // path = POST /login สำหรับเข้าสู่ระบบ
 
