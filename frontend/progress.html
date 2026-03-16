@@ -47,17 +47,18 @@
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
          <ul class="sidebar-menu">
-    <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
-    <li><a href="course.html">📚 จัดการคอร์ส</a></li>
-    <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
-    <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
-    <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
-    <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
-    <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
-    <li style="margin-top: auto; border-top: 1px solid #3d4f56;">
-        <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+        <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+        <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+        <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+        <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+        <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+        <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+        <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+        <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
+        <li style="border-top: 1px solid #3d4f56;">
+            <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+        </li>
+        </ul>
         </div>
 
         <div class="main-content">
@@ -69,21 +70,27 @@
 
             <div style="display: flex; gap: 25px; align-items: flex-start;">
 
-                <!-- ฟอร์มบันทึกการเรียน -->
                 <div class="content-box" style="flex: 1;">
                     <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 บันทึกการเข้าเรียน</h3>
 
                     <div class="form-group">
                         <label>ใครกำลังเรียน? (Student)</label>
-                        <select class="form-control" name="student_id">
+                        <select class="form-control" name="student_id" onchange="loadStudentCourses()">
                             <option value="">-- เลือกผู้เรียน --</option>
                         </select>
                     </div>
 
                     <div class="form-group">
+                        <label>เรียนคอร์สไหน? (Course)</label>
+                        <select class="form-control" name="course_id" disabled onchange="loadCourseLessons()">
+                            <option value="">-- กรุณาเลือกผู้เรียนก่อน --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>เรียนบทไหน? (Lesson)</label>
-                        <select class="form-control" name="lesson_id">
-                            <option value="">-- เลือกบทเรียน --</option>
+                        <select class="form-control" name="lesson_id" disabled>
+                            <option value="">-- กรุณาเลือกคอร์สก่อน --</option>
                         </select>
                     </div>
 
@@ -102,7 +109,6 @@
                     </div>
                 </div>
 
-                <!-- ประวัติการเรียน -->
                 <div class="content-box" style="flex: 2;">
                     <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📋 ประวัติการเรียนของทุกคน</h3>
                     <div id="progress-data"></div>
@@ -114,7 +120,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/auth.js"></script>
-<script src="js/progress.js"></script>
-<script>checkLogin('teacher')</script
+    <script src="js/progress.js"></script>
+    <script>checkLogin('teacher');</script>
 </body>
 </html>

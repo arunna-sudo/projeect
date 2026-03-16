@@ -3,7 +3,7 @@ const BASE_URL = 'http://localhost:8000';
 window.onload = async () => {
     // โหลดข้อมูลใส่ Dropdown
     await loadStudents();
-    await loadLessons();
+    // await loadLessons(); // เอาออก เพราะเราจะโหลดบทเรียนหลังจากเลือกคอร์สแล้วแทน
     // โหลดประวัติการเรียนมาแสดง
     await loadProgress();
 }
@@ -22,14 +22,59 @@ const loadStudents = async () => {
     }
 }
 
-// 2. โหลดชื่อบทเรียน
-const loadLessons = async () => {
+// (เพิ่มใหม่) โหลดคอร์สที่นักเรียนคนนั้นลงทะเบียนไว้
+const loadStudentCourses = async () => {
+    let studentId = document.querySelector('select[name=student_id]').value;
+    let courseDOM = document.querySelector('select[name=course_id]');
+    let lessonDOM = document.querySelector('select[name=lesson_id]');
+
+    courseDOM.innerHTML = '<option value="">-- เลือกคอร์ส --</option>';
+    lessonDOM.innerHTML = '<option value="">-- กรุณาเลือกคอร์สก่อน --</option>';
+    courseDOM.disabled = true;
+    lessonDOM.disabled = true;
+
+    if (!studentId) return;
+
+    try {
+        const response = await axios.get(`${BASE_URL}/enrollments`);
+        let myEnrollments = response.data.filter(e => e.student_id == studentId);
+
+        if (myEnrollments.length === 0) {
+            courseDOM.innerHTML = '<option value="">-- นักเรียนยังไม่ได้ลงคอร์สใดๆ --</option>';
+        } else {
+            for (let i = 0; i < myEnrollments.length; i++) {
+                let enroll = myEnrollments[i];
+                courseDOM.innerHTML += `<option value="${enroll.course_id}">${enroll.course_title}</option>`;
+            }
+            courseDOM.disabled = false;
+        }
+    } catch (error) {
+        console.error('Error fetching enrollments:', error);
+    }
+}
+
+// 2. โหลดชื่อบทเรียน (แก้ให้โหลดตามคอร์สที่เลือก)
+const loadCourseLessons = async () => {
+    let courseId = document.querySelector('select[name=course_id]').value;
+    let lessonDOM = document.querySelector('select[name=lesson_id]');
+
+    lessonDOM.innerHTML = '<option value="">-- เลือกบทเรียน --</option>';
+    lessonDOM.disabled = true;
+
+    if (!courseId) return;
+
     try {
         const response = await axios.get(`${BASE_URL}/lessons`);
-        let lessonDOM = document.querySelector('select[name=lesson_id]');
-        for (let i = 0; i < response.data.length; i++) {
-            let lesson = response.data[i];
-            lessonDOM.innerHTML += `<option value="${lesson.id}">บทที่ ${lesson.order_number}: ${lesson.title}</option>`;
+        let courseLessons = response.data.filter(l => l.course_id == courseId);
+
+        if (courseLessons.length === 0) {
+            lessonDOM.innerHTML = '<option value="">-- คอร์สนี้ยังไม่มีบทเรียน --</option>';
+        } else {
+            for (let i = 0; i < courseLessons.length; i++) {
+                let lesson = courseLessons[i];
+                lessonDOM.innerHTML += `<option value="${lesson.id}">บทที่ ${lesson.order_number}: ${lesson.title}</option>`;
+            }
+            lessonDOM.disabled = false;
         }
     } catch (error) {
         console.error('Error fetching lessons:', error);

@@ -411,3 +411,196 @@ textarea.form {
     color: white;
     transform: scale(1.05);
 }
+/* --- Login Page --- */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+    border-top: 4px solid #3c8dbc;
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-logo .icon { font-size: 55px; }
+.login-logo h2 { margin: 10px 0 5px 0; color: #333; font-size: 24px; }
+.login-logo p { color: #999; margin: 0; font-size: 14px; }
+
+.login-hint {
+    margin-top: 20px;
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.8;
+}
+.login-bg {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3c8dbc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* --- Login Background --- */
+.login-bg {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* วงกลมลอยพื้นหลัง */
+.login-bg::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+.login-bg::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    bottom: -80px;
+    right: -80px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 420px;
+    border-top: 4px solid #667eea;
+    position: relative;
+    z-index: 1;
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-logo .icon { font-size: 55px; }
+.login-logo h2 { margin: 10px 0 5px 0; color: #333; font-size: 24px; }
+.login-logo p { color: #999; margin: 0; font-size: 14px; }
+
+.login-hint {
+    margin-top: 20px;
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.8;
+}
+/* --- Quiz Page --- */
+.quiz-item {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #3c8dbc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.quiz-question {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.choice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.choice-list li { margin-bottom: 8px; }
+
+.choice-list label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 15px;
+}
+
+.choice-list label:hover {
+    border-color: #3c8dbc;
+    background: #f0f8ff;
+}
+
+.choice-list input[type=radio] {
+    cursor: pointer;
+    accent-color: #3c8dbc;
+}
+
+.result-correct {
+    background: #d4edda;
+    border-left-color: #00a65a;
+}
+
+.result-wrong {
+    background: #f2dede;
+    border-left-color: #dd4b39;
+}
+
+.result-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.badge-correct {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-wrong {
+    background: #f2dede;
+    color: #721c24;
+}
+
+.score-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-top: 3px solid #00a65a;
+}
+
+.score-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00a65a;
+}

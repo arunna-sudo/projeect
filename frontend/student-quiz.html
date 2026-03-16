@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li><a href="student-dashboard.html">📊 หน้าหลัก</a></li>
+                <li><a href="student-courses.html">📚 คอร์สของฉัน</a></li>
+                <li><a href="student-progress.html">📈 ความคืบหน้า</a></li>
+                <li class="active"><a href="student-quiz.html">📋 แบบทดสอบ</a></li>
+                <li style="border-top: 1px solid #3d4f56;">
+                    <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    แบบทดสอบ <small style="color: #777; font-size: 15px; font-weight: normal;">เลือกบทเรียนแล้วทำข้อสอบได้เลย</small>
+                </h1>
+            </div>
+
+            <!-- เลือกคอร์สและบทเรียน -->
+            <div class="content-box" style="margin-bottom: 20px;">
+                <div class="form-group">
+                    <label>เลือกคอร์สที่ลงทะเบียนไว้</label>
+                    <select class="form-control" name="course_id" onchange="loadLessons()">
+                        <option value="">-- เลือกคอร์ส --</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>เลือกบทเรียน</label>
+                    <select class="form-control" name="lesson_id" onchange="loadQuizzes()">
+                        <option value="">-- เลือกบทเรียน --</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- คะแนน -->
+            <div id="score-box" style="display:none;" class="score-box">
+                <div class="score-number" id="score-text">0/0</div>
+                <p style="color: #777; margin: 5px 0 0 0;">คะแนนที่ได้</p>
+            </div>
+
+            <!-- ข้อสอบ -->
+            <div id="quiz-container"></div>
+
+            <!-- ปุ่มส่งคำตอบ -->
+            <div id="submit-section" style="display:none; text-align: center; margin-top: 20px;">
+                <button onclick="submitAllAnswers()" class="btn-submit" style="padding: 12px 40px; font-size: 16px;">
+                    📝 ส่งคำตอบทั้งหมด
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/student-quiz.js"></script>
+    <script>checkLogin('student')</script>
+</body>
+</html>

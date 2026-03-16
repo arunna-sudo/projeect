@@ -9,6 +9,7 @@ const port = 8000;
 app.use(bodyParser.json());
 app.use(cors());
 
+
 let conn = null;
 
 const initMySQL = async () => {
@@ -42,6 +43,10 @@ app.use('/enrollments', enrollmentRoutes);
 
 const progressRoutes = require('./routes/progress');
 app.use('/progress', progressRoutes);
+
+const quizRoutes = require('./routes/quizzes');
+app.use('/quizzes', quizRoutes);
+
 
 // validateData 
 const validateData = (courseData) => {
@@ -164,7 +169,7 @@ app.post('/login', async (req, res) => {
     try {
         let { email, password } = req.body;
 
-        // 1. เช็คใน users ก่อน (สำหรับครู)
+        // 1. เช็คใน users ก่อน (สำหรับครูหลัก)
         const userResult = await conn.query(
             'SELECT * FROM users WHERE email = ? AND password = ?',
             [email, password]
@@ -184,16 +189,32 @@ app.post('/login', async (req, res) => {
             });
         }
 
-        // 3. ถ้าไม่ใช่ครู ให้เช็คใน students แทน
-        // นักเรียนทุกคนใช้ password เดียวกัน = '1234'
+        // 3. password ต้องเป็น 1234 เท่านั้น
         if (password !== '1234') {
             throw { statuscode: 401, message: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง' };
         }
 
+        // 4. เช็คใน instructors — ครูใหม่ที่เพิ่มในระบบ
+        const instructorResult = await conn.query(
+            'SELECT * FROM instructors WHERE email = ?', [email]
+        );
+        if (instructorResult[0].length > 0) {
+            let instructor = instructorResult[0][0];
+            return res.json({
+                message: 'เข้าสู่ระบบสำเร็จ',
+                user: {
+                    id: instructor.id,
+                    email: instructor.email,
+                    role: 'teacher',
+                    student_id: null
+                }
+            });
+        }
+
+        // 5. เช็คใน students
         const studentResult = await conn.query(
             'SELECT * FROM students WHERE email = ?', [email]
         );
-
         if (studentResult[0].length == 0) {
             throw { statuscode: 401, message: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง' };
         }
@@ -205,7 +226,7 @@ app.post('/login', async (req, res) => {
                 id: student.id,
                 email: student.email,
                 role: 'student',
-                student_id: student.id  // ← ใช้ id จาก students โดยตรง
+                student_id: student.id // ← ใช้ id จาก students โดยตรง
             }
         });
 

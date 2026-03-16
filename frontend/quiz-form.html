@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+                <li class="active"><a href="quiz.html">📋 แบบทดสอบ</a></li>
+                <li style="border-top: 1px solid #3d4f56;">
+                    <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    ข้อมูลข้อสอบ <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม/แก้ไขข้อสอบ</small>
+                </h1>
+            </div>
+
+            <div style="display: flex; gap: 25px; align-items: flex-start;">
+
+                <div class="content-box" style="flex: 2;">
+                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 กรอกข้อมูลข้อสอบ</h3>
+
+                    <div class="form-group">
+                        <label>บทเรียน</label>
+                        <select class="form-control" name="lesson_id">
+                            <option value="">-- เลือกบทเรียน --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>คำถาม</label>
+                        <textarea class="form-control" name="question" rows="3" placeholder="พิมพ์คำถาม..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ตัวเลือก A</label>
+                        <input class="form-control" name="choice_a" type="text" placeholder="กรอกตัวเลือก A">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ตัวเลือก B</label>
+                        <input class="form-control" name="choice_b" type="text" placeholder="กรอกตัวเลือก B">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ตัวเลือก C</label>
+                        <input class="form-control" name="choice_c" type="text" placeholder="กรอกตัวเลือก C">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ตัวเลือก D</label>
+                        <input class="form-control" name="choice_d" type="text" placeholder="กรอกตัวเลือก D">
+                    </div>
+
+                    <div class="form-group">
+                        <label>เฉลย</label>
+                        <select class="form-control" name="answer">
+                            <option value="">-- เลือกเฉลย --</option>
+                            <option value="a">A</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                        </select>
+                    </div>
+
+                    <div id="message" class="message"></div>
+
+                    <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; text-align: right;">
+                        <a href="quiz.html" class="btn-back">⬅️ ยกเลิก / กลับ</a>
+                        <button onclick="submitData()" class="btn-submit">💾 บันทึกข้อมูล</button>
+                    </div>
+                </div>
+
+                <div class="content-box" style="flex: 1; background-color: #f9f9f9; border-top-color: #f39c12;">
+                    <h3 style="margin-top: 0; font-size: 16px; color: #e67e22;">💡 คำแนะนำ</h3>
+                    <ul style="padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
+                        <li>เลือกบทเรียนที่ข้อสอบนี้สังกัด</li>
+                        <li>กรอกคำถามให้ชัดเจน</li>
+                        <li>กรอกตัวเลือก A B C D ให้ครบ</li>
+                        <li>เลือกเฉลยที่ถูกต้อง</li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p style="font-size: 13px; color: #888;">* ทุกช่องจำเป็นต้องกรอกให้ครบถ้วน</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/quiz-form.js"></script>
+    <script>checkLogin('teacher')</script>
+</body>
+</html>

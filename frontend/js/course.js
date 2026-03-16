@@ -39,8 +39,8 @@ const loadData = async () => {
                     <span style="color: #7f8c8d; font-size: 14px; margin-left: 10px;">(ผู้สอน: ${instructorName})</span>
                 </div>
                 <div>
-                    <a href="index.html?id=${course.id}" class="btn-edit" style="text-decoration: none;">Edit</a>
-                    <button class="delete btn-delete" data-id="${course.id}">Delete</button>
+                    <a href="index.html?id=${course.id}" class="btn-edit" style="text-decoration: none;">✏️ แก้ไข</a>
+                    <button class="delete btn-delete" data-id="${course.id}">🗑️ ลบ</button>
                 </div>
             </div>`
         }

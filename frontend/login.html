@@ -3,46 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login — Course Boo</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background-color: #ecf0f5; margin: 0;">
-    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-        <div class="content-box" style="width: 100%; max-width: 420px;">
+<body class="login-bg">
 
-            <div style="text-align: center; margin-bottom: 25px;">
-                <div style="font-size: 50px;">🎓</div>
-                <h2 style="margin: 10px 0 5px 0; color: #333;">Course Boo</h2>
-                <p style="color: #777; margin: 0; font-size: 14px;">ระบบจัดการคอร์สออนไลน์</p>
-            </div>
+    <div class="login-box">
 
-            <div class="form-group">
-                <label>อีเมล</label>
-                <input class="form-control" name="email" type="email" placeholder="กรอกอีเมล">
-            </div>
-
-            <div class="form-group">
-                <label>รหัสผ่าน</label>
-                <input class="form-control" name="password" type="password" placeholder="กรอกรหัสผ่าน">
-            </div>
-
-            <div id="message" class="message"></div>
-
-            <div style="margin-top: 20px;">
-                <button onclick="submitLogin()" class="btn-submit" style="width: 100%; padding: 12px;">
-                    🔐 เข้าสู่ระบบ
-                </button>
-            </div>
-
-            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; font-size: 13px; color: #999; text-align: center;">
-                <p>👨‍🏫 ครู: teacher@school.com / 1234</p>
-                <p>👨‍🎓 นักเรียน: student@school.com / 1234</p>
-            </div>
-
+        <!-- Logo -->
+        <div class="login-logo">
+            <div class="icon">🎓</div>
+            <h2>Course Boo</h2>
+            <p>ระบบจัดการคอร์สออนไลน์</p>
         </div>
+
+        <!-- ฟอร์ม — ใช้ form-group และ form-control จาก CSS เดิม -->
+        <div class="form-group">
+            <label>อีเมล</label>
+            <input class="form-control" name="email" type="email" placeholder="กรอกอีเมล">
+        </div>
+
+        <div class="form-group">
+            <label>รหัสผ่าน</label>
+            <input class="form-control" name="password" type="password" placeholder="กรอกรหัสผ่าน">
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <!-- ปุ่ม — ใช้ btn-submit จาก CSS เดิม -->
+        <button onclick="submitLogin()" class="btn-submit" style="width: 100%; padding: 12px; font-size: 16px;">
+            🔐 เข้าสู่ระบบ
+        </button>
+
+        <!-- hint -->
+        <div class="login-hint">
+            <strong>👨‍🏫 ครู:</strong> teacher@school.com password 1234 <br>
+            <strong>👨‍🎓 นักเรียน:</strong> เมลตัวเอง password 1234 <br>
+            <strong>💡 ครูใหม่ / นักเรียนใหม่:</strong> ใช้ email ตัวเอง password 1234
+        </div>
+
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/login.js"></script>
 </body>
 </html>
-
