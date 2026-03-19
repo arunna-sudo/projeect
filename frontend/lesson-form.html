@@ -12,18 +12,18 @@
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
             <ul class="sidebar-menu">
-   <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
-        <li><a href="course.html">📚 จัดการคอร์ส</a></li>
-        <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
-        <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
-        <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
-        <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
-        <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
-        <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
-        <li style="border-top: 1px solid #3d4f56;">
-            <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+                <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li style="border-top: 1px solid #3d4f56;">
+                    <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+                </li>
             </ul>
         </div>
 
@@ -59,7 +59,22 @@
 
                     <div class="form-group">
                         <label>เนื้อหาบทเรียน</label>
-                        <textarea class="form-control" name="content" rows="5" placeholder="พิมพ์เนื้อหา..."></textarea>
+                        <textarea class="form-control" name="content" rows="5" placeholder="พิมพ์เนื้อหาสรุปของบทเรียน..."></textarea>
+                    </div>
+
+                    <!-- ลิงก์ YouTube -->
+                    <div class="form-group">
+                        <label>🎬 ลิงก์วิดีโอ YouTube (ไม่บังคับ)</label>
+                        <input class="form-control" name="video_url" type="text" placeholder="เช่น https://www.youtube.com/watch?v=xxxxx">
+                    </div>
+
+                    <!-- ลิงก์ PDF -->
+                    <div class="form-group">
+                        <label>📄 ลิงก์ไฟล์ PDF / เอกสาร (ไม่บังคับ)</label>
+                        <input class="form-control" name="file_url" type="text" placeholder="เช่น https://example.com/document.pdf">
+                        <small style="color: #888; font-size: 12px; margin-top: 5px; display: block;">
+                            💡 แนะนำ: อัปโหลดไฟล์ไปที่ Google Drive แล้ววางลิงก์ที่นี่
+                        </small>
                     </div>
 
                     <div id="message" class="message"></div>
@@ -74,13 +89,15 @@
                 <div class="content-box" style="flex: 1; background-color: #f9f9f9; border-top-color: #f39c12;">
                     <h3 style="margin-top: 0; font-size: 16px; color: #e67e22;">💡 คำแนะนำการกรอก</h3>
                     <ul style="padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
-                        <li><b>คอร์สเรียน:</b> เลือกคอร์สที่บทเรียนนี้สังกัดอยู่</li>
-                        <li><b>ลำดับบทเรียน:</b> ระบุว่าเป็นบทที่เท่าไหร่ เช่น 1, 2, 3</li>
+                        <li><b>คอร์สเรียน:</b> เลือกคอร์สที่บทเรียนนี้สังกัด</li>
+                        <li><b>ลำดับบทเรียน:</b> เช่น 1, 2, 3</li>
                         <li><b>ชื่อบทเรียน:</b> ตั้งชื่อให้สื่อถึงเนื้อหา</li>
-                        <li><b>เนื้อหา:</b> อธิบายสิ่งที่จะสอนในบทนี้</li>
+                        <li><b>เนื้อหา:</b> สรุปสิ่งที่จะสอน</li>
+                        <li><b>YouTube:</b> วางลิงก์วิดีโอให้นักเรียนดู</li>
+                        <li><b>PDF:</b> วางลิงก์เอกสารประกอบการสอน</li>
                     </ul>
                     <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
-                    <p style="font-size: 13px; color: #888;">* ทุกช่องจำเป็นต้องกรอกให้ครบถ้วน</p>
+                    <p style="font-size: 13px; color: #888;">* ช่องที่มี * จำเป็นต้องกรอก</p>
                 </div>
 
             </div>
@@ -89,7 +106,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/auth.js"></script>
-<script src="js/lesson-form.js"></script>
-<script>checkLogin('teacher')</script>
+    <script src="js/lesson-form.js"></script>
+    <script>checkLogin('teacher')</script>
 </body>
 </html>

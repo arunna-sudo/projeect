@@ -3,12 +3,11 @@ let mode = 'create';
 let selectedId = '';
 
 window.onload = async () => {
-    // โหลดคอร์สทั้งหมดมาใส่ใน Dropdown ก่อน
     await loadCourses();
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-    
+
     if (id) {
         mode = 'edit';
         selectedId = id;
@@ -16,22 +15,18 @@ window.onload = async () => {
             const response = await axios.get(`${BASE_URL}/lessons/${id}`);
             const lesson = response.data;
 
-            let courseDOM = document.querySelector('select[name=course_id]');
-            let orderDOM = document.querySelector('input[name=order_number]');
-            let titleDOM = document.querySelector('input[name=title]');
-            let contentDOM = document.querySelector('textarea[name=content]');
-
-            courseDOM.value = lesson.course_id;
-            orderDOM.value = lesson.order_number;
-            titleDOM.value = lesson.title;
-            contentDOM.value = lesson.content;
+            document.querySelector('select[name=course_id]').value = lesson.course_id;
+            document.querySelector('input[name=order_number]').value = lesson.order_number;
+            document.querySelector('input[name=title]').value = lesson.title;
+            document.querySelector('textarea[name=content]').value = lesson.content || '';
+            document.querySelector('input[name=video_url]').value = lesson.video_url || '';
+            document.querySelector('input[name=file_url]').value = lesson.file_url || '';
         } catch (error) {
             console.error('Error fetching lesson data:', error);
         }
     }
 }
 
-// ฟังก์ชันดึงข้อมูลคอร์สมาทำ Dropdown
 const loadCourses = async () => {
     try {
         const response = await axios.get(`${BASE_URL}/courses`);
@@ -54,56 +49,47 @@ const validateData = (data) => {
 }
 
 const submitData = async () => {
-    let courseDOM = document.querySelector('select[name=course_id]');
-    let orderDOM = document.querySelector('input[name=order_number]');
-    let titleDOM = document.querySelector('input[name=title]');
-    let contentDOM = document.querySelector('textarea[name=content]');
     let messageDOM = document.getElementById('message');
 
     try {
         let lessonData = {
-            course_id: courseDOM.value,
-            order_number: orderDOM.value,
-            title: titleDOM.value,
-            content: contentDOM.value
+            course_id: document.querySelector('select[name=course_id]').value,
+            order_number: document.querySelector('input[name=order_number]').value,
+            title: document.querySelector('input[name=title]').value,
+            content: document.querySelector('textarea[name=content]').value,
+            video_url: document.querySelector('input[name=video_url]').value,
+            file_url: document.querySelector('input[name=file_url]').value
         }
 
         const errors = validateData(lessonData);
         if (errors.length > 0) {
-            throw {
-                message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
-                errors: errors
-            }
+            throw { message: 'กรุณากรอกข้อมูลให้ครบถ้วน', errors: errors }
         }
 
         let message = 'บันทึกข้อมูลสำเร็จ';
         if (mode === 'create') {
             await axios.post(`${BASE_URL}/lessons`, lessonData);
-        } else if (mode === 'edit') {
+        } else {
             await axios.put(`${BASE_URL}/lessons/${selectedId}`, lessonData);
             message = 'แก้ไขข้อมูลสำเร็จ';
         }
 
         messageDOM.innerText = message;
         messageDOM.className = 'message success';
+
+        setTimeout(() => { window.location.href = 'lesson.html'; }, 1500);
+
     } catch (error) {
-        console.log('error message', error.message);
         if (error.response) {
             error.message = error.response.data.message;
             error.errors = error.response.data.errors;
         }
-
-        let htmlData = '<div>';
-        htmlData += `<div>${error.message}</div>`;
+        let htmlData = `<div>${error.message || 'เกิดข้อผิดพลาด'}</div>`;
         if (error.errors && error.errors.length > 0) {
             htmlData += '<ul>';
-            for (let i = 0; i < error.errors.length; i++) {
-                htmlData += `<li>${error.errors[i]}</li>`;
-            }
+            for (let e of error.errors) { htmlData += `<li>${e}</li>`; }
             htmlData += '</ul>';
         }
-        htmlData += '</div>';
-        
         messageDOM.innerHTML = htmlData;
         messageDOM.className = 'message danger';
     }

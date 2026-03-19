@@ -8,7 +8,7 @@
 </head>
 <body style="background-color: #ecf0f5; margin: 0;">
     <div class="admin-layout">
-
+ 
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
             <ul class="sidebar-menu">
@@ -20,26 +20,27 @@
                 <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li class="active"><a href="quiz.html">📋 แบบทดสอบ</a></li>
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
                 <li style="border-top: 1px solid #3d4f56;">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
                 </li>
             </ul>
         </div>
-
+ 
         <div class="main-content">
             <div class="header-section">
                 <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
                     แบบทดสอบ <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม แก้ไข ลบ ข้อสอบทั้งหมด</small>
                 </h1>
             </div>
-
+ 
             <div class="content-box">
                 <a href="quiz-form.html" class="btn-add">➕ เพิ่มข้อสอบใหม่</a>
                 <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">รายชื่อข้อสอบทั้งหมด</h3>
                 <div id="quiz"></div>
             </div>
         </div>
-
+ 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/auth.js"></script>

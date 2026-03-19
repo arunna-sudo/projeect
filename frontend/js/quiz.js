@@ -31,7 +31,6 @@ const loadData = async () => {
         htmlData += '</div>';
         quizDOM.innerHTML = htmlData;
 
-        // ผูก event delete
         const deleteDOMs = document.getElementsByClassName('delete');
         for (let i = 0; i < deleteDOMs.length; i++) {
             deleteDOMs[i].addEventListener('click', async (event) => {
@@ -39,7 +38,7 @@ const loadData = async () => {
                     const id = event.target.dataset.id;
                     try {
                         await axios.delete(`${BASE_URL}/quizzes/${id}`);
-                        loadData(); // โหลดข้อมูลใหม่หลังจากลบสำเร็จ
+                        loadData();
                     } catch (error) {
                         console.error('Error deleting quiz:', error);
                     }

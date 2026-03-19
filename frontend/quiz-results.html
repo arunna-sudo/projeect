@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คะแนนแบบทดสอบ</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: #ecf0f5; margin: 0;">
+    <div class="admin-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">🎓 Course Boo</div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
+                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
+                <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
+                <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
+                <li class="active"><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li style="border-top: 1px solid #3d4f56;">
+                    <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+ 
+        <div class="main-content">
+            <div class="header-section">
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
+                    คะแนนแบบทดสอบ
+                    <small style="color: #777; font-size: 15px; font-weight: normal;">ผลสอบของนักเรียน แยกตามบทเรียน</small>
+                </h1>
+            </div>
+ 
+            <!-- Stat Cards -->
+            <div class="stat-grid" style="margin-bottom: 25px;">
+                <div class="stat-card bg-blue">
+                    <div><h3 id="count-students">0</h3><p>นักเรียนที่ทำข้อสอบ</p></div>
+                    <div class="stat-icon">👤</div>
+                </div>
+                <div class="stat-card bg-green">
+                    <div><h3 id="count-correct">0</h3><p>ข้อที่ตอบถูก</p></div>
+                    <div class="stat-icon">✅</div>
+                </div>
+                <div class="stat-card bg-red">
+                    <div><h3 id="count-wrong">0</h3><p>ข้อที่ตอบผิด</p></div>
+                    <div class="stat-icon">❌</div>
+                </div>
+                <div class="stat-card bg-orange">
+                    <div><h3 id="count-avg">0%</h3><p>คะแนนเฉลี่ยรวม</p></div>
+                    <div class="stat-icon">📊</div>
+                </div>
+            </div>
+ 
+            <div class="content-box">
+                <div class="filter-bar">
+                    <div class="form-group">
+                        <label>กรองตามนักเรียน</label>
+                        <select class="form-control" id="filter-student" onchange="applyFilter()">
+                            <option value="">-- นักเรียนทุกคน --</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="results-container">
+                    <p style="text-align:center; color:gray;">กำลังโหลด...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/quiz-results.js"></script>
+    <script>checkLogin('teacher')</script>
+</body>
+</html>
