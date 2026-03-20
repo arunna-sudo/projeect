@@ -6,25 +6,30 @@
     <title>Manage Courses</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background-color: #ecf0f5; margin: 0;">
+<body>
+<!--
+    หน้า   : จัดการคอร์ส
+    หน้าที่ : แสดงรายการคอร์สทั้งหมด ครูสามารถเพิ่ม แก้ไข หรือลบคอร์สได้
+-->
+
     <div class="admin-layout">
         
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
-    <ul class="sidebar-menu">
+                <ul class="sidebar-menu">
                 <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
-                <li><a href="course.html">📚 จัดการคอร์ส</a></li>
+                <li class="active"><a href="course.html">📚 จัดการคอร์ส</a></li>
                 <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
                 <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
                 <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
                 <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
-                <li class="active"><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
-                <li style="border-top: 1px solid #3d4f56;">
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li style="border-top: 1px solid rgba(255,255,255,0.06);">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+                </li>
+            </ul>
         </div>
 
         <div class="main-content">
@@ -39,6 +44,11 @@
                 
                 <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">รายชื่อคอร์สทั้งหมด</h3>
                 
+                <div style="margin-bottom: 14px;">
+                    <input type="text" id="search-input" class="form-control"
+                        placeholder="🔍 ค้นหาคอร์ส ชื่อหรือผู้สอน..."
+                        oninput="filterList()">
+                </div>
                 <div id="course"></div>
             </div>
         </div>

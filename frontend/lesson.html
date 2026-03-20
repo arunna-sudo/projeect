@@ -6,25 +6,30 @@
     <title>Lesson Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background-color: #ecf0f5; margin: 0;">
+<body>
+<!--
+    หน้า   : จัดการบทเรียน
+    หน้าที่ : แสดงบทเรียนทั้งหมด สามารถเพิ่ม แก้ไข หรือลบบทเรียนได้
+-->
+
     <div class="admin-layout">
 
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
-           <ul class="sidebar-menu">
+                       <ul class="sidebar-menu">
                 <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
                 <li><a href="course.html">📚 จัดการคอร์ส</a></li>
                 <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
-                <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
+                <li class="active"><a href="lesson.html">📝 จัดการบทเรียน</a></li>
                 <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
                 <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
-                <li class="active"><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
-                <li style="border-top: 1px solid #3d4f56;">
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li style="border-top: 1px solid rgba(255,255,255,0.06);">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+                </li>
+            </ul>
         </div>
 
         <div class="main-content">

@@ -6,25 +6,30 @@
     <title>Student Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background-color: #ecf0f5; margin: 0;">
+<body>
+<!--
+    หน้า   : จัดการผู้เรียน
+    หน้าที่ : แสดงรายชื่อนักเรียนทั้งหมด สามารถเพิ่ม แก้ไข หรือลบได้
+-->
+
     <div class="admin-layout">
 
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
- <ul class="sidebar-menu">
+             <ul class="sidebar-menu">
                 <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
                 <li><a href="course.html">📚 จัดการคอร์ส</a></li>
                 <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
                 <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
-                <li><a href="student.html">🎓 จัดการผู้เรียน</a></li>
+                <li class="active"><a href="student.html">🎓 จัดการผู้เรียน</a></li>
                 <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
-                <li class="active"><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
-                <li style="border-top: 1px solid #3d4f56;">
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li style="border-top: 1px solid rgba(255,255,255,0.06);">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+                </li>
+            </ul>
         </div>
 
         <div class="main-content">
@@ -37,6 +42,11 @@
             <div class="content-box">
                 <a href="student-form.html" class="btn-add"> ➕ เพิ่มผู้เรียนใหม่</a>
                 <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">รายชื่อผู้เรียนทั้งหมด</h3>
+                <div style="margin-bottom: 14px;">
+                    <input type="text" id="search-input" class="form-control"
+                        placeholder="🔍 ค้นหานักเรียน ชื่อหรืออีเมล..."
+                        oninput="filterList()">
+                </div>
                 <div id="student"></div>
             </div>
         </div>

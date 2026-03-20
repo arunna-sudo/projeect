@@ -67,3 +67,30 @@ const loadData = async () => {
         console.error('Error fetching data:', error);
     }
 }
+// === Search / Filter ===
+const filterList = () => {
+    const keyword = document.getElementById('search-input').value.toLowerCase().trim();
+    const items = document.querySelectorAll('#course .data-item');
+    let found = 0;
+
+    items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(keyword)) {
+            item.style.display = 'flex';
+            found++;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    // แสดงข้อความเมื่อไม่พบ
+    let noResult = document.getElementById('no-result');
+    if (!noResult) {
+        noResult = document.createElement('p');
+        noResult.id = 'no-result';
+        noResult.style.cssText = 'text-align:center; color: var(--text-3); padding: 20px 0;';
+        noResult.innerText = '🔍 ไม่พบคอร์สที่ค้นหา';
+        document.getElementById('course').appendChild(noResult);
+    }
+    noResult.style.display = found === 0 && keyword ? 'block' : 'none';
+}

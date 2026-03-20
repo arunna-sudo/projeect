@@ -1,14 +1,13 @@
-/* ============================================================
-   Course Boo — Premium Design
-   Font: Noto Sans Thai + DM Sans
-   Palette: Soft Indigo & Teal — สบายตา สวย มืออาชีพ
-   ============================================================ */
+/* ===================================
+   Project  : Course Boo
+   เจ้าของ  : ระบบจัดการคอร์สออนไลน์
+   Fonts    : DM Sans + Noto Sans Thai
+   สี       : Indigo & Teal
+=================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
 
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
+/* ---------- 1. DESIGN TOKENS ---------- */
 :root {
     --c-indigo-50:  #eef2ff;
     --c-indigo-100: #e0e7ff;
@@ -96,9 +95,7 @@
     --dur: 200ms;
 }
 
-/* ============================================================
-   BASE
-   ============================================================ */
+/* ---------- 2. BASE RESET ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -110,14 +107,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
+/* ---------- 3. LAYOUT ---------- */
 .admin-layout { display: flex; min-height: 100vh; }
 
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
+/* ---------- 4. SIDEBAR ---------- */
 .sidebar {
     width: 256px;
     background: var(--sb-bg);
@@ -196,9 +189,7 @@ body {
     padding-top: 8px;
 }
 
-/* ============================================================
-   MAIN CONTENT
-   ============================================================ */
+/* ---------- 5. MAIN CONTENT ---------- */
 .main-content {
     flex: 1;
     padding: 24px 28px;
@@ -206,9 +197,7 @@ body {
     background: var(--bg);
 }
 
-/* ============================================================
-   HEADER SECTION
-   ============================================================ */
+/* ---------- 6. HEADER SECTION ---------- */
 .header-section {
     background: var(--surface);
     padding: 18px 22px;
@@ -249,9 +238,7 @@ body {
     margin-left: 4px;
 }
 
-/* ============================================================
-   STAT CARDS
-   ============================================================ */
+/* ---------- 7. STAT CARDS ---------- */
 .stat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -310,9 +297,7 @@ body {
 .bg-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
 .bg-red    { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); }
 
-/* ============================================================
-   DASHBOARD MENU CARDS
-   ============================================================ */
+/* ---------- 8. DASHBOARD MENU CARDS ---------- */
 .dashboard-grid, .dashboard-grid-fixed { display: grid; gap: 14px; }
 .dashboard-grid-fixed { grid-template-columns: repeat(3, 1fr); }
 
@@ -397,9 +382,7 @@ body {
 }
 .activity-list li:last-child { border-bottom: none; padding-bottom: 0; }
 
-/* ============================================================
-   CONTENT BOX
-   ============================================================ */
+/* ---------- 9. CONTENT BOX ---------- */
 .content-box {
     background: var(--surface);
     padding: 22px;
@@ -408,9 +391,7 @@ body {
     border: 1px solid var(--border);
 }
 
-/* ============================================================
-   DATA ITEMS
-   ============================================================ */
+/* ---------- 10. DATA ITEMS ---------- */
 .data-item {
     padding: 13px 14px;
     border-bottom: 1px solid var(--border);
@@ -424,9 +405,7 @@ body {
 .data-item:hover { background: var(--surface-2); }
 .data-item:last-child { border-bottom: none; }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* ---------- 11. BUTTONS ---------- */
 .btn-add {
     display: inline-flex;
     align-items: center;
@@ -576,9 +555,7 @@ body {
     border-color: var(--c-rose-500);
 }
 
-/* ============================================================
-   FORMS
-   ============================================================ */
+/* ---------- 12. FORMS ---------- */
 .form-group { margin-bottom: 18px; }
 
 .form-group label {
@@ -616,9 +593,7 @@ body {
 
 textarea.form-control { resize: vertical; min-height: 100px; }
 
-/* ============================================================
-   MESSAGES
-   ============================================================ */
+/* ---------- 13. MESSAGES / ALERTS ---------- */
 .message {
     padding: 12px 16px;
     margin-bottom: 16px;
@@ -651,9 +626,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     display: inline-block;
 }
 
-/* ============================================================
-   ENROLLMENT ITEMS
-   ============================================================ */
+/* ---------- 14. ENROLLMENT ITEMS ---------- */
 .enrollment-item {
     background: var(--surface);
     padding: 14px 16px;
@@ -677,9 +650,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .enrollment-item strong { color: var(--text-1); font-weight: 600; }
 .enrollment-item small  { color: var(--text-3); font-size: 12px; }
 
-/* ============================================================
-   PROGRESS ITEMS
-   ============================================================ */
+/* ---------- 15. PROGRESS ITEMS ---------- */
 .progress-item {
     background: var(--surface);
     padding: 14px 16px;
@@ -709,9 +680,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .status-learning  { background: var(--c-amber-50);   color: #92400e; border: 1px solid rgba(245,158,11,0.25); }
 .status-completed { background: var(--c-emerald-50); color: #065f46; border: 1px solid rgba(16,185,129,0.25); }
 
-/* ============================================================
-   LOGIN PAGE
-   ============================================================ */
+/* ---------- 16. LOGIN PAGE ---------- */
 .login-bg {
     min-height: 100vh;
     display: flex;
@@ -803,9 +772,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     line-height: 2;
 }
 
-/* ============================================================
-   QUIZ
-   ============================================================ */
+/* ---------- 17. QUIZ ---------- */
 .quiz-item {
     background: var(--surface);
     padding: 20px 22px;
@@ -895,9 +862,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     margin-bottom: 6px;
 }
 
-/* ============================================================
-   MODAL
-   ============================================================ */
+/* ---------- 18. MODAL POPUP ---------- */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -991,9 +956,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     border-left: 3px solid var(--c-indigo-500);
 }
 
-/* ============================================================
-   COURSE SECTIONS (student)
-   ============================================================ */
+/* ---------- 19. COURSE SECTIONS (หน้านักเรียน) ---------- */
 .course-section {
     margin-bottom: 16px;
     border: 1px solid var(--border);
@@ -1048,9 +1011,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     box-shadow: 0 2px 8px rgba(99,102,241,0.3);
 }
 
-/* ============================================================
-   QUIZ RESULTS TABLE
-   ============================================================ */
+/* ---------- 20. QUIZ RESULTS TABLE ---------- */
 .score-table {
     width: 100%;
     border-collapse: collapse;
@@ -1147,9 +1108,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 }
 .filter-bar .form-group { margin-bottom: 0; min-width: 200px; }
 
-/* ============================================================
-   CONTAINER
-   ============================================================ */
+/* ---------- 21. CONTAINER ---------- */
 .container {
     max-width: 700px;
     margin: 40px auto;
@@ -1160,27 +1119,21 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     border: 1px solid var(--border);
 }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
+/* ---------- 22. SCROLLBAR ---------- */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: var(--r-full); }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
-/* ============================================================
-   SELECTION
-   ============================================================ */
+/* ---------- 23. TEXT SELECTION ---------- */
 ::selection {
     background: var(--c-indigo-100);
     color: var(--c-indigo-700);
 }
 
-/* ============================================================
-   ANIMATIONS — เพิ่มชีวิตให้หน้าเว็บ ไม่แข็งเกินไป
-   ============================================================ */
+/* ---------- 24. ANIMATIONS ---------- */
 
-/* --- 1. Page Load: ทุก card/box ค่อยๆ ปรากฏขึ้น --- */
+/* Page load — fadeUp ทีละชิ้น */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -1196,13 +1149,13 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* stat cards โผล่ขึ้นมาทีละใบ */
+
 .stat-card:nth-child(1) { animation: fadeUp 0.4s ease both; animation-delay: 0.05s; }
 .stat-card:nth-child(2) { animation: fadeUp 0.4s ease both; animation-delay: 0.12s; }
 .stat-card:nth-child(3) { animation: fadeUp 0.4s ease both; animation-delay: 0.19s; }
 .stat-card:nth-child(4) { animation: fadeUp 0.4s ease both; animation-delay: 0.26s; }
 
-/* menu cards โผล่ขึ้นมาทีละใบ */
+
 .menu-card:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.10s; }
 .menu-card:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.17s; }
 .menu-card:nth-child(3) { animation: fadeUp 0.45s ease both; animation-delay: 0.24s; }
@@ -1210,11 +1163,11 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .menu-card:nth-child(5) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
 .menu-card:nth-child(6) { animation: fadeUp 0.45s ease both; animation-delay: 0.45s; }
 
-/* content-box โผล่ขึ้นนุ่มๆ */
+
 .content-box  { animation: fadeUp 0.4s ease both; animation-delay: 0.1s; }
 .header-section { animation: fadeUp 0.35s ease both; }
 
-/* --- 2. Sidebar menu items ไหลเข้าจากซ้าย --- */
+/* Sidebar — ไหลเข้าจากซ้าย */
 @keyframes slideInLeft {
     from { opacity: 0; transform: translateX(-12px); }
     to   { opacity: 1; transform: translateX(0); }
@@ -1231,7 +1184,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .sidebar-menu li:nth-child(9)  { animation: slideInLeft 0.3s ease both; animation-delay: 0.29s; }
 .sidebar-menu li:nth-child(10) { animation: slideInLeft 0.3s ease both; animation-delay: 0.32s; }
 
-/* --- 3. ตัวเลขใน Stat Card นับขึ้น (CSS pulse แทน) --- */
+/* Stat card numbers */
 .stat-card h3 {
     animation: countPulse 0.5s ease both;
     animation-delay: 0.3s;
@@ -1242,7 +1195,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* --- 4. Data items โผล่ทีละแถว --- */
+/* Data list rows */
 .data-item {
     animation: fadeUp 0.3s ease both;
 }
@@ -1255,7 +1208,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .data-item:nth-child(7)  { animation-delay: 0.29s; }
 .data-item:nth-child(8)  { animation-delay: 0.33s; }
 
-/* --- 5. Quiz items โผล่ขึ้น --- */
+/* Quiz items */
 .quiz-item {
     animation: fadeUp 0.35s ease both;
 }
@@ -1265,7 +1218,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .quiz-item:nth-child(4) { animation-delay: 0.26s; }
 .quiz-item:nth-child(5) { animation-delay: 0.33s; }
 
-/* --- 6. Enrollment / Progress items --- */
+/* Enrollment / Progress items */
 .enrollment-item {
     animation: fadeUp 0.3s ease both;
 }
@@ -1284,9 +1237,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .progress-item:nth-child(4) { animation-delay: 0.20s; }
 .progress-item:nth-child(5) { animation-delay: 0.25s; }
 
-/* --- 7. Hover micro-interactions --- */
+/* Hover interactions */
 
-/* ปุ่มกด ripple effect */
+
 .btn-submit:active,
 .btn-add:active,
 .btn-view:active {
@@ -1294,7 +1247,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     transition-duration: 80ms !important;
 }
 
-/* ลิงก์ Sidebar smooth glow */
+
 .sidebar-menu li a::before {
     content: '';
     position: absolute;
@@ -1310,7 +1263,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .sidebar-menu li a:hover::before { transform: translateY(-50%) scaleY(1); }
 .sidebar-menu li.active a::before { transform: translateY(-50%) scaleY(1); background: #818cf8; }
 
-/* Form input focus animation */
+
 .form-control {
     transition: border-color 0.2s var(--ease),
                 box-shadow 0.2s var(--ease),
@@ -1318,7 +1271,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 }
 .form-control:focus { transform: translateY(-1px); }
 
-/* Badge pulse เมื่อโหลด */
+
 .status-completed {
     animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     animation-delay: 0.3s;
@@ -1332,7 +1285,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* Score number โผล่มาแบบ bounce */
+
 .score-number {
     animation: scoreBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -1341,7 +1294,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* --- 8. Message alert เด้งเข้ามา --- */
+/* Alert messages */
 .message.success,
 .message.danger {
     animation: alertSlide 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) both;
@@ -1351,7 +1304,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* --- 9. Lesson group header shimmer (subtle) --- */
+/* Lesson group shimmer */
 .lesson-group-header {
     position: relative;
     overflow: hidden;
@@ -1371,7 +1324,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     100% { left: 150%; }
 }
 
-/* --- 10. Course section header โผล่ขึ้น --- */
+/* Course sections */
 .course-section {
     animation: fadeUp 0.4s ease both;
 }
@@ -1380,4 +1333,269 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .course-section:nth-child(3) { animation-delay: 0.19s; }
 .course-section:nth-child(4) { animation-delay: 0.26s; }
 
-/* สิ้นสุด Animation Section */
+
+/* ---------- 25. CHART (Dashboard) ---------- */
+
+/* wrapper กราฟ */
+#quiz-chart-wrapper {
+    position: relative;
+    height: 280px;
+    padding: 0 8px;
+}
+
+/* ป้ายสี legend */
+.chart-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-3);
+}
+
+.chart-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* empty state */
+#chart-empty {
+    text-align: center;
+    color: var(--text-3);
+    padding: 60px 0;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* ---------- 26. SEARCH INPUT ---------- */
+
+/* wrapper ช่อง search */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+/* ไฮไลต์ row ที่ตรงกับ search */
+.data-item.highlight {
+    background: var(--c-indigo-50);
+    border-left: 3px solid var(--c-indigo-500);
+}
+
+/* ---------- 27. ENROLLMENT APPROVAL ---------- */
+
+.btn-approve {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--c-emerald-50);
+    color: var(--c-emerald-600);
+    border: 1.5px solid rgba(16,185,129,0.3);
+    padding: 6px 14px;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+}
+.btn-approve:hover {
+    background: var(--c-emerald-500);
+    color: white;
+    border-color: var(--c-emerald-500);
+    box-shadow: 0 2px 8px rgba(16,185,129,0.3);
+}
+
+.btn-reject {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--c-rose-50);
+    color: var(--c-rose-500);
+    border: 1.5px solid rgba(244,63,94,0.3);
+    padding: 6px 14px;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+}
+.btn-reject:hover {
+    background: var(--c-rose-500);
+    color: white;
+    border-color: var(--c-rose-500);
+}
+
+.btn-enroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--c-emerald-500);
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(16,185,129,0.3);
+    transition: all var(--dur) var(--ease);
+}
+.btn-enroll:hover { background: var(--c-emerald-600); transform: translateY(-1px); }
+.btn-enroll:disabled { background: #9ca3af; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ---------- 28. VISUAL ENHANCEMENTS ---------- */
+
+/* === Login: floating dots พื้นหลัง === */
+.login-bg {
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(20,184,166,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 80%, rgba(244,63,94,0.1)  0%, transparent 50%),
+        #0e1027;
+}
+
+/* จุดลอยพื้นหลัง login */
+.login-bg::before,
+.login-bg::after {
+    animation-duration: 25s;
+}
+
+/* dot เล็กๆ กระจาย */
+@keyframes floatDot {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.4; }
+    33%       { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.7; }
+    66%       { transform: translateY(15px) translateX(-20px) scale(0.9); opacity: 0.3; }
+}
+
+.login-box::before {
+    content: '✦';
+    position: absolute;
+    font-size: 12px;
+    color: rgba(99,102,241,0.3);
+    top: -30px; right: 40px;
+    animation: floatDot 4s ease-in-out infinite;
+}
+
+.login-box::after {
+    content: '✦';
+    position: absolute;
+    font-size: 8px;
+    color: rgba(20,184,166,0.3);
+    bottom: -25px; left: 50px;
+    animation: floatDot 5s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+/* === Sidebar: active item glow === */
+.sidebar-menu li.active a {
+    background: rgba(99,102,241,0.18);
+    color: #c7d2fe;
+    border-left: 3px solid #6366f1;
+    box-shadow: inset 0 0 20px rgba(99,102,241,0.08);
+    position: relative;
+}
+
+/* dot สีเขียวกะพริบที่ sidebar header */
+.sidebar-header::after {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 4px var(--c-emerald-400); opacity: 1; }
+    50%       { box-shadow: 0 0 10px var(--c-emerald-400), 0 0 20px rgba(52,211,153,0.3); opacity: 0.7; }
+}
+
+/* === Stat cards: shimmer on hover === */
+.stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,0.15) 50%,
+        transparent 60%
+    );
+    background-size: 200% 100%;
+    background-position: 200% 0;
+    transition: background-position 0.6s ease;
+}
+
+.stat-card:hover::before {
+    background-position: -200% 0;
+}
+
+/* === Header section: subtle gradient border === */
+.header-section::before {
+    background: linear-gradient(180deg,
+        var(--c-indigo-500) 0%,
+        var(--c-teal-500)   50%,
+        var(--c-emerald-500) 100%
+    );
+    animation: borderFlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes borderFlow {
+    from { opacity: 0.7; }
+    to   { opacity: 1; }
+}
+
+/* === Content box: hover lift === */
+.content-box {
+    transition: box-shadow 0.25s var(--ease);
+}
+.content-box:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* === Menu cards: icon bounce on hover === */
+.menu-card:hover .menu-icon {
+    animation: iconBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes iconBounce {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.25) rotate(-5deg); }
+    70%  { transform: scale(0.95) rotate(3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* === Score number: rainbow color เมื่อได้ 100% === */
+.score-number[data-perfect="true"] {
+    background: linear-gradient(135deg, #10b981, #6366f1, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow 2s linear infinite;
+    background-size: 200% auto;
+}
+
+@keyframes rainbow {
+    from { background-position: 0% center; }
+    to   { background-position: 200% center; }
+}
+
+/* === Table rows: smooth highlight === */
+.score-table tbody tr {
+    transition: background var(--dur) var(--ease);
+}
+
+/* === Btn hover: subtle glow === */
+.btn-submit:hover {
+    box-shadow: 0 4px 20px rgba(99,102,241,0.4), 0 0 0 2px rgba(99,102,241,0.1);
+}
+
+.btn-add:hover {
+    box-shadow: 0 4px 16px rgba(16,185,129,0.45), 0 0 0 2px rgba(16,185,129,0.1);
+}
+
+/* === Progress bar ใน lesson items === */
+.lesson-item {
+    position: relative;
+}
+
+/* สิ้นสุด Visual Enhancements */

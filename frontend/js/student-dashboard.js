@@ -3,7 +3,9 @@ const BASE_URL = 'http://localhost:8000';
 window.onload = async () => {
     // ดึงข้อมูล user จาก localStorage
     let user = JSON.parse(localStorage.getItem('user'));
-    document.getElementById('student-name').innerText = user.email;
+    // แสดงชื่อจาก email — ตัดเอาแค่ส่วนหน้า @ 
+    const displayName = user.email.split('@')[0];
+    document.getElementById('student-name').innerText = displayName;
 
     // ใช้ student_id แทน user.id
     if (user.student_id) {

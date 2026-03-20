@@ -39,14 +39,6 @@
         .activity-list li:last-child {
             border-bottom: none;
         }
-        
-        /* ปรับสำหรับหน้าจอมือถือ/แท็บเล็ต */
-        @media (max-width: 1024px) {
-            .dashboard-grid-fixed { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .dashboard-grid-fixed { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body style="background-color: #ecf0f5; margin: 0;">
@@ -54,7 +46,7 @@
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
            <ul class="sidebar-menu">
-                <li><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
+                <li class="active"><a href="dashboard.html">📊 ภาพรวมระบบ</a></li>
                 <li><a href="course.html">📚 จัดการคอร์ส</a></li>
                 <li><a href="instructor.html">👨‍🏫 จัดการผู้สอน</a></li>
                 <li><a href="lesson.html">📝 จัดการบทเรียน</a></li>
@@ -62,7 +54,7 @@
                 <li><a href="enrollment.html">🔗 การลงทะเบียน</a></li>
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
-                <li class="active"><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
+                <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
                 <li style="border-top: 1px solid #3d4f56;">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
     </li>
@@ -153,7 +145,29 @@
                 </div>
             </div>
 
-            <div class="recent-activity">
+            
+            <!-- กราฟคะแนน Quiz -->
+            <div class="content-box" style="margin-top: 22px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border);">
+                    <h3 style="margin:0; font-size:15px; font-weight:600; color:var(--text-1);">
+                        📊 คะแนนเฉลี่ย Quiz แยกตามบทเรียน
+                    </h3>
+                    <div class="chart-legend">
+                        <span>🟢 ≥70%</span>
+                        <span>🟡 40–69%</span>
+                        <span>🔴 &lt;40%</span>
+                    </div>
+                </div>
+                <div id="quiz-chart-wrapper">
+                    <canvas id="quizChart"></canvas>
+                </div>
+                <p id="chart-empty" style="display:none;">
+                    📭 ยังไม่มีข้อมูลผลสอบ<br>
+                    <small>รอนักเรียนทำแบบทดสอบก่อนครับ</small>
+                </p>
+            </div>
+
+<div class="recent-activity">
                 <h3 style="margin-top: 0; color: #333; font-size: 18px; border-bottom: 2px solid #ecf0f5; padding-bottom: 10px;">📢 ประกาศ / ความเคลื่อนไหวล่าสุด</h3>
                 <ul class="activity-list">
                     <li><span style="color: #00a65a;">●</span> ยินดีต้อนรับ นักเรียนทุกคน </li>
@@ -165,6 +179,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/dashboard.js"></script>
