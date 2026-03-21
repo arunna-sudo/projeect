@@ -13,14 +13,14 @@
             gap: 20px;
         }
         
-        /* กล่องแจ้งเตือนด้านล่างสุด */
+        /* กล่องแจ้งเตือนด้านล่างสุด — override ให้ dark theme */
         .recent-activity {
-            background: white;
+            background: transparent;
             border-radius: 5px;
             padding: 20px;
             margin-top: 30px;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-            border-top: 3px solid #3c8dbc;
+            box-shadow: none;
+            border-top: none;
         }
         .activity-list {
             list-style: none;
@@ -29,8 +29,8 @@
         }
         .activity-list li {
             padding: 12px 0;
-            border-bottom: 1px solid #f4f4f4;
-            color: #555;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.65);
             font-size: 15px;
             display: flex;
             align-items: center;
@@ -41,7 +41,7 @@
         }
     </style>
 </head>
-<body style="background-color: #ecf0f5; margin: 0;">
+<body class="teacher-body">
     <div class="admin-layout">
         <div class="sidebar">
             <div class="sidebar-header">🎓 Course Boo</div>
@@ -55,16 +55,15 @@
                 <li><a href="progress.html">📈 ติดตามการเรียน</a></li>
                 <li><a href="quiz.html">📋 แบบทดสอบ</a></li>
                 <li><a href="quiz-results.html">🏆 คะแนนแบบทดสอบ</a></li>
-                <li style="border-top: 1px solid #3d4f56;">
+                <li style="border-top: 1px solid rgba(255,255,255,0.06);">
                     <a href="#" onclick="logout()">🚪 ออกจากระบบ</a>
-    </li>
-</ul>
+                </li>
             </ul>
         </div>
 
         <div class="main-content">
             <div class="header-section">
-                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">Dashboard <small style="color: #777; font-size: 15px; font-weight: normal;">ระบบจัดการคอร์สออนไลน์</small></h1>
+                <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">Dashboard <small style="font-size: 15px; font-weight: normal; color: inherit; opacity: 0.45;">ระบบจัดการคอร์สออนไลน์</small></h1>
             </div>
 
             <div class="stat-grid">
@@ -98,7 +97,7 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 30px; margin-bottom: 20px; color: #333; font-size: 20px;">ทางลัดการจัดการ</h3>
+            <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 20px; color: rgba(255,255,255,0.85);">ทางลัดการจัดการ</h3>
             
             <div class="dashboard-grid-fixed">
                 <div class="menu-card card-course">
@@ -148,7 +147,7 @@
             
             <!-- กราฟคะแนน Quiz -->
             <div class="content-box" style="margin-top: 22px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08);">
                     <h3 style="margin:0; font-size:15px; font-weight:600; color:var(--text-1);">
                         📊 คะแนนเฉลี่ย Quiz แยกตามบทเรียน
                     </h3>
@@ -168,7 +167,7 @@
             </div>
 
 <div class="recent-activity">
-                <h3 style="margin-top: 0; color: #333; font-size: 18px; border-bottom: 2px solid #ecf0f5; padding-bottom: 10px;">📢 ประกาศ / ความเคลื่อนไหวล่าสุด</h3>
+                <h3 style="margin-top: 0; font-size: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);">📢 ประกาศ / ความเคลื่อนไหวล่าสุด</h3>
                 <ul class="activity-list">
                     <li><span style="color: #00a65a;">●</span> ยินดีต้อนรับ นักเรียนทุกคน </li>
                     <li><span style="color: #f39c12;">●</span> ระบบอัปเดตข้อมูลสถิติแบบ Real-time </li>

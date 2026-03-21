@@ -6,7 +6,7 @@
     <title>Student Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="teacher-body">
 <!--
     หน้า   : จัดการผู้เรียน
     หน้าที่ : แสดงรายชื่อนักเรียนทั้งหมด สามารถเพิ่ม แก้ไข หรือลบได้
@@ -35,13 +35,13 @@
         <div class="main-content">
             <div class="header-section">
                 <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
-                    จัดการผู้เรียน <small style="color: #777; font-size: 15px; font-weight: normal;">เพิ่ม แก้ไข ลบ ข้อมูลผู้เรียน</small>
+                    จัดการผู้เรียน <small style="font-size: 15px; font-weight: normal; color: inherit; opacity: 0.45;">เพิ่ม แก้ไข ลบ ข้อมูลผู้เรียน</small>
                 </h1>
             </div>
 
             <div class="content-box">
                 <a href="student-form.html" class="btn-add"> ➕ เพิ่มผู้เรียนใหม่</a>
-                <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">รายชื่อผู้เรียนทั้งหมด</h3>
+                <h3 style="margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">รายชื่อผู้เรียนทั้งหมด</h3>
                 <div style="margin-bottom: 14px;">
                     <input type="text" id="search-input" class="form-control"
                         placeholder="🔍 ค้นหานักเรียน ชื่อหรืออีเมล..."

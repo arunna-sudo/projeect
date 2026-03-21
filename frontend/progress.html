@@ -6,8 +6,9 @@
     <title>Progress Tracking</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* override local — dark theme ใช้ CSS หลักแทน */
         .progress-item {
-            background-color: #f9f9f9;
+            background-color: transparent;
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -23,12 +24,12 @@
             font-weight: bold;
         }
         .status-learning {
-            background-color: #fff3e0;
-            color: #e65100;
+            background-color: rgba(245,158,11,0.15);
+            color: #fbbf24;
         }
         .status-completed {
-            background-color: #e8f5e9;
-            color: #2e7d32;
+            background-color: rgba(16,185,129,0.15);
+            color: #34d399;
         }
         .btn-success {
             background-color: #4CAF50;
@@ -41,7 +42,7 @@
         .btn-success:hover { background-color: #45a049; }
     </style>
 </head>
-<body>
+<body class="teacher-body">
 <!--
     หน้า   : ติดตามการเรียน
     หน้าที่ : บันทึกและดูความคืบหน้าการเรียนของนักเรียนแต่ละคน
@@ -70,14 +71,14 @@
         <div class="main-content">
             <div class="header-section">
                 <h1 style="margin: 0; font-size: 24px; padding-bottom: 20px;">
-                    ติดตามการเรียน <small style="color: #777; font-size: 15px; font-weight: normal;">ดูความคืบหน้าการเรียนของนักเรียน</small>
+                    ติดตามการเรียน <small style="font-size: 15px; font-weight: normal; color: inherit; opacity: 0.45;">ดูความคืบหน้าการเรียนของนักเรียน</small>
                 </h1>
             </div>
 
             <div style="display: flex; gap: 25px; align-items: flex-start;">
 
                 <div class="content-box" style="flex: 1;">
-                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📝 บันทึกการเข้าเรียน</h3>
+                    <h3 style="margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">📝 บันทึกการเข้าเรียน</h3>
 
                     <div class="form-group">
                         <label>ใครกำลังเรียน? (Student)</label>
@@ -116,7 +117,7 @@
                 </div>
 
                 <div class="content-box" style="flex: 2;">
-                    <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">📋 ประวัติการเรียนของทุกคน</h3>
+                    <h3 style="margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">📋 ประวัติการเรียนของทุกคน</h3>
                     <div id="progress-data"></div>
                 </div>
 

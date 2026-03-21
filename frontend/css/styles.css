@@ -1,13 +1,14 @@
-/* ===================================
-   Project  : Course Boo
-   เจ้าของ  : ระบบจัดการคอร์สออนไลน์
-   Fonts    : DM Sans + Noto Sans Thai
-   สี       : Indigo & Teal
-=================================== */
+/* ============================================================
+   Course Boo — Premium Design
+   Font: Noto Sans Thai + DM Sans
+   Palette: Soft Indigo & Teal — สบายตา สวย มืออาชีพ
+   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
 
-/* ---------- 1. DESIGN TOKENS ---------- */
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
     --c-indigo-50:  #eef2ff;
     --c-indigo-100: #e0e7ff;
@@ -95,7 +96,9 @@
     --dur: 200ms;
 }
 
-/* ---------- 2. BASE RESET ---------- */
+/* ============================================================
+   BASE
+   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -107,10 +110,14 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- 3. LAYOUT ---------- */
+/* ============================================================
+   LAYOUT
+   ============================================================ */
 .admin-layout { display: flex; min-height: 100vh; }
 
-/* ---------- 4. SIDEBAR ---------- */
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
 .sidebar {
     width: 256px;
     background: var(--sb-bg);
@@ -189,7 +196,9 @@ body {
     padding-top: 8px;
 }
 
-/* ---------- 5. MAIN CONTENT ---------- */
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
 .main-content {
     flex: 1;
     padding: 24px 28px;
@@ -197,7 +206,9 @@ body {
     background: var(--bg);
 }
 
-/* ---------- 6. HEADER SECTION ---------- */
+/* ============================================================
+   HEADER SECTION
+   ============================================================ */
 .header-section {
     background: var(--surface);
     padding: 18px 22px;
@@ -238,7 +249,9 @@ body {
     margin-left: 4px;
 }
 
-/* ---------- 7. STAT CARDS ---------- */
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
 .stat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -297,7 +310,9 @@ body {
 .bg-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
 .bg-red    { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); }
 
-/* ---------- 8. DASHBOARD MENU CARDS ---------- */
+/* ============================================================
+   DASHBOARD MENU CARDS
+   ============================================================ */
 .dashboard-grid, .dashboard-grid-fixed { display: grid; gap: 14px; }
 .dashboard-grid-fixed { grid-template-columns: repeat(3, 1fr); }
 
@@ -382,7 +397,9 @@ body {
 }
 .activity-list li:last-child { border-bottom: none; padding-bottom: 0; }
 
-/* ---------- 9. CONTENT BOX ---------- */
+/* ============================================================
+   CONTENT BOX
+   ============================================================ */
 .content-box {
     background: var(--surface);
     padding: 22px;
@@ -391,7 +408,9 @@ body {
     border: 1px solid var(--border);
 }
 
-/* ---------- 10. DATA ITEMS ---------- */
+/* ============================================================
+   DATA ITEMS
+   ============================================================ */
 .data-item {
     padding: 13px 14px;
     border-bottom: 1px solid var(--border);
@@ -405,7 +424,9 @@ body {
 .data-item:hover { background: var(--surface-2); }
 .data-item:last-child { border-bottom: none; }
 
-/* ---------- 11. BUTTONS ---------- */
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .btn-add {
     display: inline-flex;
     align-items: center;
@@ -555,7 +576,43 @@ body {
     border-color: var(--c-rose-500);
 }
 
-/* ---------- 12. FORMS ---------- */
+/* btn-enroll — ปุ่มขอลงทะเบียนคอร์ส (หน้านักเรียน) */
+.btn-enroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--c-emerald-500), var(--c-teal-500));
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(16,185,129,0.3);
+    transition: all var(--dur) var(--ease);
+}
+.btn-enroll:hover {
+    background: linear-gradient(135deg, var(--c-emerald-600), var(--c-teal-600));
+    box-shadow: 0 4px 18px rgba(16,185,129,0.45);
+    transform: translateY(-1px);
+}
+.btn-enroll:active {
+    transform: scale(0.97) translateY(0) !important;
+    transition-duration: 80ms !important;
+}
+.btn-enroll:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
 .form-group { margin-bottom: 18px; }
 
 .form-group label {
@@ -593,7 +650,9 @@ body {
 
 textarea.form-control { resize: vertical; min-height: 100px; }
 
-/* ---------- 13. MESSAGES / ALERTS ---------- */
+/* ============================================================
+   MESSAGES
+   ============================================================ */
 .message {
     padding: 12px 16px;
     margin-bottom: 16px;
@@ -626,7 +685,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     display: inline-block;
 }
 
-/* ---------- 14. ENROLLMENT ITEMS ---------- */
+/* ============================================================
+   ENROLLMENT ITEMS
+   ============================================================ */
 .enrollment-item {
     background: var(--surface);
     padding: 14px 16px;
@@ -650,7 +711,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .enrollment-item strong { color: var(--text-1); font-weight: 600; }
 .enrollment-item small  { color: var(--text-3); font-size: 12px; }
 
-/* ---------- 15. PROGRESS ITEMS ---------- */
+/* ============================================================
+   PROGRESS ITEMS
+   ============================================================ */
 .progress-item {
     background: var(--surface);
     padding: 14px 16px;
@@ -680,7 +743,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .status-learning  { background: var(--c-amber-50);   color: #92400e; border: 1px solid rgba(245,158,11,0.25); }
 .status-completed { background: var(--c-emerald-50); color: #065f46; border: 1px solid rgba(16,185,129,0.25); }
 
-/* ---------- 16. LOGIN PAGE ---------- */
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
 .login-bg {
     min-height: 100vh;
     display: flex;
@@ -772,7 +837,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     line-height: 2;
 }
 
-/* ---------- 17. QUIZ ---------- */
+/* ============================================================
+   QUIZ
+   ============================================================ */
 .quiz-item {
     background: var(--surface);
     padding: 20px 22px;
@@ -862,7 +929,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     margin-bottom: 6px;
 }
 
-/* ---------- 18. MODAL POPUP ---------- */
+/* ============================================================
+   MODAL
+   ============================================================ */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -956,7 +1025,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     border-left: 3px solid var(--c-indigo-500);
 }
 
-/* ---------- 19. COURSE SECTIONS (หน้านักเรียน) ---------- */
+/* ============================================================
+   COURSE SECTIONS (student)
+   ============================================================ */
 .course-section {
     margin-bottom: 16px;
     border: 1px solid var(--border);
@@ -1011,7 +1082,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     box-shadow: 0 2px 8px rgba(99,102,241,0.3);
 }
 
-/* ---------- 20. QUIZ RESULTS TABLE ---------- */
+/* ============================================================
+   QUIZ RESULTS TABLE
+   ============================================================ */
 .score-table {
     width: 100%;
     border-collapse: collapse;
@@ -1108,7 +1181,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 }
 .filter-bar .form-group { margin-bottom: 0; min-width: 200px; }
 
-/* ---------- 21. CONTAINER ---------- */
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .container {
     max-width: 700px;
     margin: 40px auto;
@@ -1119,21 +1194,27 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     border: 1px solid var(--border);
 }
 
-/* ---------- 22. SCROLLBAR ---------- */
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: var(--r-full); }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
-/* ---------- 23. TEXT SELECTION ---------- */
+/* ============================================================
+   SELECTION
+   ============================================================ */
 ::selection {
     background: var(--c-indigo-100);
     color: var(--c-indigo-700);
 }
 
-/* ---------- 24. ANIMATIONS ---------- */
+/* ============================================================
+   ANIMATIONS — เพิ่มชีวิตให้หน้าเว็บ ไม่แข็งเกินไป
+   ============================================================ */
 
-/* Page load — fadeUp ทีละชิ้น */
+/* --- 1. Page Load: ทุก card/box ค่อยๆ ปรากฏขึ้น --- */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -1149,13 +1230,13 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-
+/* stat cards โผล่ขึ้นมาทีละใบ */
 .stat-card:nth-child(1) { animation: fadeUp 0.4s ease both; animation-delay: 0.05s; }
 .stat-card:nth-child(2) { animation: fadeUp 0.4s ease both; animation-delay: 0.12s; }
 .stat-card:nth-child(3) { animation: fadeUp 0.4s ease both; animation-delay: 0.19s; }
 .stat-card:nth-child(4) { animation: fadeUp 0.4s ease both; animation-delay: 0.26s; }
 
-
+/* menu cards โผล่ขึ้นมาทีละใบ */
 .menu-card:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.10s; }
 .menu-card:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.17s; }
 .menu-card:nth-child(3) { animation: fadeUp 0.45s ease both; animation-delay: 0.24s; }
@@ -1163,11 +1244,11 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .menu-card:nth-child(5) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
 .menu-card:nth-child(6) { animation: fadeUp 0.45s ease both; animation-delay: 0.45s; }
 
-
+/* content-box โผล่ขึ้นนุ่มๆ */
 .content-box  { animation: fadeUp 0.4s ease both; animation-delay: 0.1s; }
 .header-section { animation: fadeUp 0.35s ease both; }
 
-/* Sidebar — ไหลเข้าจากซ้าย */
+/* --- 2. Sidebar menu items ไหลเข้าจากซ้าย --- */
 @keyframes slideInLeft {
     from { opacity: 0; transform: translateX(-12px); }
     to   { opacity: 1; transform: translateX(0); }
@@ -1184,7 +1265,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .sidebar-menu li:nth-child(9)  { animation: slideInLeft 0.3s ease both; animation-delay: 0.29s; }
 .sidebar-menu li:nth-child(10) { animation: slideInLeft 0.3s ease both; animation-delay: 0.32s; }
 
-/* Stat card numbers */
+/* --- 3. ตัวเลขใน Stat Card นับขึ้น (CSS pulse แทน) --- */
 .stat-card h3 {
     animation: countPulse 0.5s ease both;
     animation-delay: 0.3s;
@@ -1195,7 +1276,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* Data list rows */
+/* --- 4. Data items โผล่ทีละแถว --- */
 .data-item {
     animation: fadeUp 0.3s ease both;
 }
@@ -1208,7 +1289,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .data-item:nth-child(7)  { animation-delay: 0.29s; }
 .data-item:nth-child(8)  { animation-delay: 0.33s; }
 
-/* Quiz items */
+/* --- 5. Quiz items โผล่ขึ้น --- */
 .quiz-item {
     animation: fadeUp 0.35s ease both;
 }
@@ -1218,7 +1299,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .quiz-item:nth-child(4) { animation-delay: 0.26s; }
 .quiz-item:nth-child(5) { animation-delay: 0.33s; }
 
-/* Enrollment / Progress items */
+/* --- 6. Enrollment / Progress items --- */
 .enrollment-item {
     animation: fadeUp 0.3s ease both;
 }
@@ -1237,9 +1318,9 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .progress-item:nth-child(4) { animation-delay: 0.20s; }
 .progress-item:nth-child(5) { animation-delay: 0.25s; }
 
-/* Hover interactions */
+/* --- 7. Hover micro-interactions --- */
 
-
+/* ปุ่มกด ripple effect */
 .btn-submit:active,
 .btn-add:active,
 .btn-view:active {
@@ -1247,7 +1328,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     transition-duration: 80ms !important;
 }
 
-
+/* ลิงก์ Sidebar smooth glow */
 .sidebar-menu li a::before {
     content: '';
     position: absolute;
@@ -1263,7 +1344,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .sidebar-menu li a:hover::before { transform: translateY(-50%) scaleY(1); }
 .sidebar-menu li.active a::before { transform: translateY(-50%) scaleY(1); background: #818cf8; }
 
-
+/* Form input focus animation */
 .form-control {
     transition: border-color 0.2s var(--ease),
                 box-shadow 0.2s var(--ease),
@@ -1271,7 +1352,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 }
 .form-control:focus { transform: translateY(-1px); }
 
-
+/* Badge pulse เมื่อโหลด */
 .status-completed {
     animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     animation-delay: 0.3s;
@@ -1285,7 +1366,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-
+/* Score number โผล่มาแบบ bounce */
 .score-number {
     animation: scoreBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -1294,7 +1375,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* Alert messages */
+/* --- 8. Message alert เด้งเข้ามา --- */
 .message.success,
 .message.danger {
     animation: alertSlide 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) both;
@@ -1304,7 +1385,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Lesson group shimmer */
+/* --- 9. Lesson group header shimmer (subtle) --- */
 .lesson-group-header {
     position: relative;
     overflow: hidden;
@@ -1324,7 +1405,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     100% { left: 150%; }
 }
 
-/* Course sections */
+/* --- 10. Course section header โผล่ขึ้น --- */
 .course-section {
     animation: fadeUp 0.4s ease both;
 }
@@ -1333,63 +1414,1157 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .course-section:nth-child(3) { animation-delay: 0.19s; }
 .course-section:nth-child(4) { animation-delay: 0.26s; }
 
+/* สิ้นสุด Animation Section */
 
-/* ---------- 25. CHART (Dashboard) ---------- */
+/* ---------- 29. LANDING PAGE ---------- */
 
-/* wrapper กราฟ */
-#quiz-chart-wrapper {
-    position: relative;
-    height: 280px;
-    padding: 0 8px;
+/* Override body — ใช้เฉพาะหน้าที่มี .hero (landing page) */
+body:has(.hero) {
+    background: #06070f !important;
+    color: white;
 }
 
-/* ป้ายสี legend */
+/* Navbar */
+.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(6,7,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo {
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+.nav-logo span {
+    background: linear-gradient(135deg, #6366f1, #14b8a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-btn {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    padding: 9px 22px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+}
+.nav-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,0.45); }
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+    background: #06070f;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(99,102,241,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(20,184,166,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(244,63,94,0.1) 0%, transparent 50%);
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+.hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99,102,241,0.15);
+    border: 1px solid rgba(99,102,241,0.3);
+    color: #a5b4fc;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+}
+.hero-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 22px;
+    animation: fadeUp 0.7s ease both 0.1s;
+    color: white;
+}
+.hero-title .gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #34d399 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s ease both 0.2s;
+}
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s ease both 0.3s;
+}
+
+/* Scroll indicator */
+.scroll-hint {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    animation: fadeUp 1s ease both 0.8s;
+}
+.scroll-dot {
+    width: 20px; height: 32px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+.scroll-dot::before {
+    content: '';
+    width: 4px; height: 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 2px;
+    animation: scrollBounce 1.8s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    80%       { transform: translateY(10px); opacity: 0; }
+}
+
+/* Landing buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 32px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(99,102,241,0.5); }
+
+.btn-ghost {
+    color: rgba(255,255,255,0.7);
+    padding: 14px 28px;
+    border-radius: 32px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.06); color: white; }
+
+/* Stats */
+.stats-section {
+    padding: 60px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.stat-item {
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item.visible { opacity: 1; transform: translateY(0); }
+.stat-number {
+    font-family: 'Kanit', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #818cf8, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.stat-label { font-size: 15px; color: rgba(255,255,255,0.5); }
+
+/* Features */
+.features-section {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #818cf8;
+    margin-bottom: 16px;
+    display: block;
+}
+.section-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: white;
+}
+.section-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 60px;
+    max-width: 500px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(24px);
+}
+.feature-card.visible { opacity: 1; transform: translateY(0); }
+.feature-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(99,102,241,0.3);
+    transform: translateY(-4px);
+}
+.feature-card::before {
+    content: '';
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+.fc-1::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.fc-2::before { background: linear-gradient(90deg, #14b8a6, #34d399); }
+.fc-3::before { background: linear-gradient(90deg, #f59e0b, #fb923c); }
+.fc-4::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+.fc-5::before { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+.fc-6::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.feature-icon { font-size: 36px; margin-bottom: 18px; display: block; }
+.feature-title { font-family: 'Kanit', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 10px; color: white; }
+.feature-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+/* Login section */
+.login-section {
+    padding: 100px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #06070f;
+}
+.login-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(99,102,241,0.12) 0%, transparent 70%);
+}
+.login-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px;
+    padding: 48px 44px;
+    width: 100%;
+    max-width: 440px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease;
+}
+.login-card.visible { opacity: 1; transform: translateY(0); }
+.login-card-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 6px;
+    color: white;
+}
+.login-card-sub { text-align: center; font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 32px; }
+.form-label { display: block; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.form-input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-family: inherit;
+    font-size: 14.5px;
+    margin-bottom: 18px;
+    transition: all 0.2s;
+    outline: none;
+    box-sizing: border-box;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.25); }
+.form-input:focus {
+    border-color: rgba(99,102,241,0.6);
+    background: rgba(99,102,241,0.08);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+.login-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+    margin-top: 4px;
+}
+.login-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(99,102,241,0.5); }
+.login-hint-dark {
+    margin-top: 20px;
+    padding: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    line-height: 2;
+    text-align: center;
+}
+.msg-box {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 16px;
+    display: none;
+}
+.msg-box.success { display: block; background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+.msg-box.danger  { display: block; background: rgba(244,63,94,0.12); color: #fb7185; border: 1px solid rgba(244,63,94,0.2); }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 32px;
+    background: #06070f;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav { padding: 16px 24px; }
+    .features-section, .stats-section { padding: 60px 24px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+}
+
+/* Fix — ปุ่มใน enrollment-item ไม่ยืด */
+.enrollment-item .btn-approve,
+.enrollment-item .btn-reject,
+.enrollment-item .btn-cancel {
+    flex-shrink: 0;
+    min-width: fit-content;
+}
+
+.enrollment-item > div:first-child {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.enrollment-item > div:last-child {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+/* ============================================================
+   STUDENT THEME — Dark mode สวยแบบ landing page
+   ============================================================ */
+
+/* Body override */
+body.student-body {
+    background: #06070f;
+    color: rgba(255,255,255,0.88);
+    font-family: 'Sarabun', 'DM Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* ========== TOP NAVBAR ========== */
+.s-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 40px;
+    height: 62px;
+    background: rgba(10,11,22,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.s-nav-logo {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+    white-space: nowrap;
+}
+
+.s-nav-logo span {
+    background: linear-gradient(135deg, #818cf8, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.s-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.s-nav-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.s-nav-links a:hover {
+    color: white;
+    background: rgba(255,255,255,0.07);
+}
+
+.s-nav-links a.s-nav-active {
+    color: #a5b4fc;
+    background: rgba(99,102,241,0.15);
+    border: 1px solid rgba(99,102,241,0.25);
+}
+
+.s-nav-logout {
+    margin-left: auto;
+    background: rgba(244,63,94,0.1);
+    color: rgba(244,63,94,0.8);
+    border: 1px solid rgba(244,63,94,0.2);
+    padding: 7px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+.s-nav-logout:hover {
+    background: rgba(244,63,94,0.2);
+    color: #fb7185;
+    border-color: rgba(244,63,94,0.4);
+}
+
+/* ========== MAIN AREA ========== */
+.s-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 28px;
+}
+
+/* ========== OVERRIDE COMPONENTS สำหรับ dark theme ========== */
+
+/* Header section */
+body.student-body .header-section {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.student-body .header-section h1 { color: white; }
+body.student-body .header-section h1 small { color: rgba(255,255,255,0.4); }
+body.student-body .header-section::before {
+    background: linear-gradient(180deg, #6366f1, #14b8a6);
+}
+
+/* Stat cards — ลด opacity เล็กน้อย */
+body.student-body .stat-grid { margin-bottom: 24px; }
+
+/* Content box */
+body.student-body .content-box {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.student-body .content-box:hover {
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+body.student-body .content-box h3 { color: rgba(255,255,255,0.8); }
+
+/* Data items */
+body.student-body .data-item {
+    border-bottom-color: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+}
+body.student-body .data-item:hover { background: rgba(255,255,255,0.04); }
+body.student-body .data-item strong { color: white; }
+body.student-body .data-item span  { color: rgba(255,255,255,0.5); }
+
+/* Progress items */
+body.student-body .progress-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    border-left-color: var(--c-amber-500);
+    box-shadow: none;
+}
+body.student-body .progress-item strong { color: white; }
+
+/* Course sections */
+body.student-body .course-section {
+    border-color: rgba(255,255,255,0.08);
+    background: transparent;
+}
+body.student-body .lesson-item {
+    border-bottom-color: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+}
+body.student-body .lesson-item:hover { background: rgba(255,255,255,0.04); }
+body.student-body .lesson-item strong { color: white; }
+
+/* Quiz items */
+body.student-body .quiz-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    border-left-color: #6366f1;
+}
+body.student-body .quiz-question { color: white; }
+body.student-body .choice-list label {
+    border-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.02);
+}
+body.student-body .choice-list label:hover {
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.12);
+    color: #c7d2fe;
+}
+
+/* Score box */
+body.student-body .score-box {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+}
+
+/* Form controls */
+body.student-body .form-control {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: white;
+}
+body.student-body .form-control:focus {
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.08);
+}
+body.student-body .form-control::placeholder { color: rgba(255,255,255,0.25); }
+body.student-body .form-group label { color: rgba(255,255,255,0.6); }
+
+/* Select dropdown สีขาว */
+body.student-body select.form-control option { background: #1a1d3a; color: white; }
+
+/* Welcome banner — เข้มขึ้น */
+body.student-body .welcome-banner {
+    box-shadow: 0 8px 32px rgba(99,102,241,0.3);
+}
+
+/* Tips cards */
+body.student-body .tip-card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.student-body .tip-card:hover {
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+body.student-body .tip-title { color: white; }
+
+/* modal */
+body.student-body .modal-box {
+    background: #111224;
+    border-color: rgba(255,255,255,0.1);
+}
+body.student-body .modal-content-text {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+}
+
+/* Scrollbar */
+body.student-body ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
+
+/* Section headings */
+body.student-body h3 { color: rgba(255,255,255,0.8); }
+
+/* Enrollment items */
+body.student-body .enrollment-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+}
+body.student-body .enrollment-item strong { color: white; }
+
+/* Btn view */
+body.student-body .btn-view {
+    background: rgba(99,102,241,0.15);
+    color: #a5b4fc;
+    border-color: rgba(99,102,241,0.3);
+}
+body.student-body .btn-view:hover {
+    background: #6366f1;
+    color: white;
+    border-color: #6366f1;
+}
+
+/* Btn enroll */
+body.student-body .btn-enroll {
+    box-shadow: 0 2px 12px rgba(16,185,129,0.3);
+}
+
+/* Submit button */
+body.student-body .btn-submit {
+    box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+}
+
+/* background subtle grid */
+body.student-body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.student-body .s-main { position: relative; z-index: 1; }
+body.student-body .s-nav  { position: sticky; z-index: 100; }
+
+/* gradient glow ด้านบน */
+body.student-body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 300px;
+    background:
+        radial-gradient(ellipse 80% 100% at 30% 0%, rgba(99,102,241,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 70% 0%, rgba(20,184,166,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================================
+   END STUDENT THEME
+   ============================================================ */
+/* ============================================================
+   CHART LEGEND — dashboard quiz chart
+   ============================================================ */
 .chart-legend {
     display: flex;
-    gap: 16px;
-    font-size: 12px;
+    align-items: center;
+    gap: 14px;
+    font-size: 12.5px;
     color: var(--text-3);
+    flex-wrap: wrap;
 }
-
 .chart-legend span {
     display: flex;
     align-items: center;
     gap: 5px;
+    font-weight: 500;
 }
 
-/* empty state */
+/* ============================================================
+   QUIZ CHART WRAPPER
+   ============================================================ */
+#quiz-chart-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 320px;
+}
+#quiz-chart-wrapper canvas {
+    width: 100% !important;
+    max-height: 300px;
+}
+
 #chart-empty {
     text-align: center;
     color: var(--text-3);
-    padding: 60px 0;
     font-size: 14px;
+    padding: 40px 0;
     line-height: 2;
 }
-
-/* ---------- 26. SEARCH INPUT ---------- */
-
-/* wrapper ช่อง search */
-.search-wrapper {
-    position: relative;
-    margin-bottom: 16px;
+#chart-empty small {
+    font-size: 12.5px;
+    color: var(--text-3);
+    opacity: 0.8;
 }
 
-/* ไฮไลต์ row ที่ตรงกับ search */
-.data-item.highlight {
-    background: var(--c-indigo-50);
-    border-left: 3px solid var(--c-indigo-500);
+/* ============================================================
+   TEACHER BODY — Dark theme สอดคล้องกับ login & student pages
+   ============================================================ */
+body.teacher-body {
+    background: #06070f;
+    color: rgba(255,255,255,0.88);
+
+    /* ===== Override CSS variables ทั้งหมดให้เป็น dark palette =====
+       วิธีนี้แก้ทีเดียวทุก element ที่ใช้ var(--text-1), var(--border) ฯลฯ */
+
+    /* Text */
+    --text-1: rgba(255,255,255,0.92);
+    --text-2: rgba(255,255,255,0.70);
+    --text-3: rgba(255,255,255,0.40);
+
+    /* Surfaces */
+    --bg:        #06070f;
+    --surface:   rgba(255,255,255,0.04);
+    --surface-2: rgba(255,255,255,0.07);
+
+    /* Borders */
+    --border:   rgba(255,255,255,0.08);
+    --border-2: rgba(255,255,255,0.14);
+
+    /* Primary ring */
+    --primary-ring: rgba(99,102,241,0.22);
+
+    /* Sidebar */
+    --sb-bg:     rgba(10,11,22,0.96);
+    --sb-hover:  rgba(255,255,255,0.07);
+    --sb-border: rgba(255,255,255,0.07);
+    --sb-text:   rgba(255,255,255,0.48);
+    --sb-active: rgba(99,102,241,0.18);
+
+    /* Shadows เข้มขึ้น */
+    --shadow-xs: 0 1px 3px rgba(0,0,0,0.35);
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.40), 0 1px 3px rgba(0,0,0,0.25);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.50), 0 2px 6px rgba(0,0,0,0.30);
+    --shadow-lg: 0 12px 36px rgba(0,0,0,0.60), 0 4px 12px rgba(0,0,0,0.35);
+
+    /* Semantic colors — light versions ปรับให้ใช้บน dark */
+    --warning-light: rgba(245,158,11,0.12);
+    --success-light: rgba(16,185,129,0.12);
+    --danger-light:  rgba(244,63,94,0.10);
+    --info-light:    rgba(14,165,233,0.10);
 }
 
-/* ---------- 27. ENROLLMENT APPROVAL ---------- */
+/* background subtle grid — เหมือน student-body */
+body.teacher-body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
 
+/* gradient glow ด้านบน — เหมือน student-body */
+body.teacher-body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 340px;
+    background:
+        radial-gradient(ellipse 70% 100% at 30% 0%, rgba(99,102,241,0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 75% 0%, rgba(20,184,166,0.09) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ทุก child ของ admin-layout ต้องอยู่เหนือ ::before/::after */
+body.teacher-body .admin-layout { position: relative; z-index: 1; }
+
+/* ========== SIDEBAR ========== */
+body.teacher-body .sidebar {
+    background: rgba(10,11,22,0.96);
+    border-right: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(16px);
+}
+
+body.teacher-body .sidebar-header {
+    background: linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(10,11,22,0.0) 100%);
+    border-bottom-color: rgba(255,255,255,0.07);
+    color: white;
+}
+
+body.teacher-body .sidebar-menu li a {
+    color: rgba(255,255,255,0.48);
+}
+body.teacher-body .sidebar-menu li a:hover {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.88);
+    border-color: rgba(255,255,255,0.08);
+}
+body.teacher-body .sidebar-menu li.active a {
+    background: rgba(99,102,241,0.18);
+    color: #a5b4fc;
+    border-color: rgba(99,102,241,0.28);
+}
+body.teacher-body .sidebar-menu li[style*="border-top"] {
+    border-top-color: rgba(255,255,255,0.07) !important;
+}
+
+/* ========== MAIN CONTENT ========== */
+body.teacher-body .main-content {
+    background: transparent;
+}
+
+/* ========== HEADER SECTION ========== */
+body.teacher-body .header-section {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.teacher-body .header-section h1 { color: white; }
+body.teacher-body .header-section h1 small { color: rgba(255,255,255,0.4); }
+body.teacher-body .header-section::before {
+    background: linear-gradient(180deg, #6366f1, #14b8a6);
+}
+
+/* ========== STAT CARDS — คงสี gradient ไว้ สวยบน dark ========== */
+/* ไม่ต้อง override — colorful gradients โดดเด่นบน dark background */
+
+/* ========== DASHBOARD MENU CARDS ========== */
+body.teacher-body .menu-card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.teacher-body .menu-card:hover {
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+body.teacher-body .menu-title { color: white; }
+body.teacher-body .menu-desc  { color: rgba(255,255,255,0.4); }
+
+/* ========== CONTENT BOX ========== */
+body.teacher-body .content-box {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.teacher-body .content-box:hover {
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+body.teacher-body .content-box h3 { color: rgba(255,255,255,0.8); }
+
+/* ========== DATA ITEMS ========== */
+body.teacher-body .data-item {
+    border-bottom-color: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+}
+body.teacher-body .data-item:hover { background: rgba(255,255,255,0.04); }
+body.teacher-body .data-item strong { color: white; }
+body.teacher-body .data-item span   { color: rgba(255,255,255,0.45); }
+body.teacher-body .data-item small  { color: rgba(255,255,255,0.35); }
+
+/* ========== ENROLLMENT ITEMS ========== */
+body.teacher-body .enrollment-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    border-left-color: var(--c-indigo-500);
+    box-shadow: none;
+}
+body.teacher-body .enrollment-item:hover {
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.12);
+    border-left-color: var(--c-indigo-500);
+}
+body.teacher-body .enrollment-item strong { color: white; }
+body.teacher-body .enrollment-item small  { color: rgba(255,255,255,0.4); }
+
+/* ========== PROGRESS ITEMS ========== */
+body.teacher-body .progress-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    border-left-color: var(--c-amber-500);
+    box-shadow: none;
+}
+body.teacher-body .progress-item:hover { background: rgba(255,255,255,0.06); }
+body.teacher-body .progress-item strong { color: white; }
+
+/* ========== QUIZ ITEMS ========== */
+body.teacher-body .quiz-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    border-left-color: #6366f1;
+    box-shadow: none;
+}
+body.teacher-body .quiz-item:hover {
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+body.teacher-body .quiz-question { color: white; }
+body.teacher-body .choice-list label {
+    border-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.02);
+}
+body.teacher-body .choice-list label:hover {
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.12);
+    color: #c7d2fe;
+}
+
+/* ========== SCORE / QUIZ RESULTS ========== */
+body.teacher-body .score-box {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+
+body.teacher-body .lesson-group {
+    border-color: rgba(255,255,255,0.08);
+}
+
+/* ========== FORMS ========== */
+body.teacher-body .form-control {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: white;
+}
+body.teacher-body .form-control:hover { border-color: rgba(255,255,255,0.18); }
+body.teacher-body .form-control:focus {
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.08);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+}
+body.teacher-body .form-control::placeholder { color: rgba(255,255,255,0.25); }
+body.teacher-body .form-group label        { color: rgba(255,255,255,0.6); }
+body.teacher-body select.form-control option { background: #1a1d3a; color: white; }
+body.teacher-body textarea.form-control { color: white; }
+
+/* ========== TABLES (quiz-results) ========== */
+body.teacher-body .score-table th {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+body.teacher-body .score-table td {
+    border-bottom-color: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.8);
+}
+body.teacher-body .score-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/* ========== FILTER BAR ========== */
+body.teacher-body .filter-bar .form-group label { color: rgba(255,255,255,0.6); }
+
+/* ========== RECENT ACTIVITY (dashboard) ========== */
+body.teacher-body .recent-activity {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+}
+body.teacher-body .recent-activity h3 {
+    color: rgba(255,255,255,0.8);
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+body.teacher-body .activity-list li {
+    color: rgba(255,255,255,0.65);
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+
+/* ========== TIP / HINT BOXES (side panels in forms) ========== */
+body.teacher-body .content-box[style*="background-color: #f9f9f9"],
+body.teacher-body .content-box[style*="background-color:#f9f9f9"] {
+    background: rgba(245,158,11,0.06) !important;
+    border-color: rgba(245,158,11,0.2) !important;
+}
+body.teacher-body .content-box ul li { color: rgba(255,255,255,0.65); }
+body.teacher-body .content-box ul li b { color: rgba(255,255,255,0.88); }
+body.teacher-body .content-box p[style*="color: #888"],
+body.teacher-body .content-box p[style*="color:#888"] {
+    color: rgba(255,255,255,0.35) !important;
+}
+body.teacher-body .content-box hr {
+    border-top-color: rgba(255,255,255,0.08) !important;
+}
+body.teacher-body h3[style*="color: #e67e22"] { color: #fbbf24 !important; }
+
+/* ========== SEARCH INPUT ========== */
+body.teacher-body #search-input {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: white;
+}
+body.teacher-body #search-input::placeholder { color: rgba(255,255,255,0.3); }
+
+/* ========== SECTION HEADINGS ========== */
+body.teacher-body h3 { color: rgba(255,255,255,0.8); }
+body.teacher-body h3[style*="color: #333"] { color: rgba(255,255,255,0.8) !important; }
+body.teacher-body h3[style*="color: #777"],
+body.teacher-body small[style*="color: #777"] { color: rgba(255,255,255,0.4) !important; }
+
+/* หัวข้อ ใน content-box หลัก */
+body.teacher-body .content-box > h3[style*="border-bottom"] {
+    border-bottom-color: rgba(255,255,255,0.08) !important;
+}
+
+/* ========== MESSAGE ALERTS ========== */
+body.teacher-body .message.success {
+    background: rgba(16,185,129,0.12);
+    color: #34d399;
+    border-color: rgba(16,185,129,0.25);
+}
+body.teacher-body .message.danger {
+    background: rgba(244,63,94,0.1);
+    color: #fb7185;
+    border-color: rgba(244,63,94,0.2);
+}
+
+/* ========== BTN-BACK dark-friendly ========== */
+body.teacher-body .btn-back {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+    border-color: rgba(255,255,255,0.12);
+}
+body.teacher-body .btn-back:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* ========== SCROLLBAR ========== */
+body.teacher-body ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
+body.teacher-body .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+/* ========== CHART ========== */
+body.teacher-body #quiz-chart-wrapper {
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--r-sm);
+    padding: 8px;
+}
+body.teacher-body .chart-legend { color: rgba(255,255,255,0.5); }
+
+/* ========== PROGRESS STATUS BADGE ========== */
+body.teacher-body .status-learning {
+    background: rgba(245,158,11,0.15);
+    color: #fbbf24;
+    border-color: rgba(245,158,11,0.2);
+}
+body.teacher-body .status-completed {
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
+    border-color: rgba(16,185,129,0.2);
+}
+
+/* ========== BADGE PASS / FAIL (quiz-results) ========== */
+body.teacher-body .badge-pass {
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
+    border-color: rgba(16,185,129,0.2);
+}
+body.teacher-body .badge-fail {
+    background: rgba(244,63,94,0.12);
+    color: #fb7185;
+    border-color: rgba(244,63,94,0.2);
+}
+
+/* ========== RESULT CORRECT / WRONG ========== */
+body.teacher-body .result-correct {
+    background: rgba(16,185,129,0.08);
+    border-color: rgba(16,185,129,0.15);
+}
+body.teacher-body .result-wrong {
+    background: rgba(244,63,94,0.08);
+    border-color: rgba(244,63,94,0.15);
+}
+
+/* ============================================================
+   ENROLLMENT APPROVE / REJECT BUTTONS
+   ============================================================ */
 .btn-approve {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: var(--c-emerald-50);
+    background: var(--success-light);
     color: var(--c-emerald-600);
-    border: 1.5px solid rgba(16,185,129,0.3);
-    padding: 6px 14px;
+    border: 1.5px solid rgba(16,185,129,0.25);
+    padding: 5px 12px;
     border-radius: var(--r-full);
     cursor: pointer;
     font-size: 12.5px;
@@ -1402,17 +2577,16 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     background: var(--c-emerald-500);
     color: white;
     border-color: var(--c-emerald-500);
-    box-shadow: 0 2px 8px rgba(16,185,129,0.3);
 }
 
 .btn-reject {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: var(--c-rose-50);
-    color: var(--c-rose-500);
-    border: 1.5px solid rgba(244,63,94,0.3);
-    padding: 6px 14px;
+    background: var(--danger-light);
+    color: var(--c-rose-600);
+    border: 1.5px solid rgba(244,63,94,0.25);
+    padding: 5px 12px;
     border-radius: var(--r-full);
     cursor: pointer;
     font-size: 12.5px;
@@ -1427,175 +2601,450 @@ textarea.form-control { resize: vertical; min-height: 100px; }
     border-color: var(--c-rose-500);
 }
 
-.btn-enroll {
+/* ============================================================
+   EMPTY STATE — แสดงเมื่อไม่มีข้อมูล
+   ============================================================ */
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-3);
+}
+.empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+    display: block;
+}
+.empty-state p {
+    font-size: 14px;
+    color: var(--text-3);
+    margin: 0;
+}
+
+/* ============================================================
+   STUDENT QUIZ — fix select arrow
+   ============================================================ */
+select.form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b90b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* ============================================================
+   RESPONSIVE — Sidebar collapse on small screens
+   ============================================================ */
+@media (max-width: 900px) {
+    .sidebar { width: 200px; }
+    .main-content { padding: 16px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid-fixed { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 640px) {
+    .admin-layout { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .sidebar-menu { display: flex; flex-wrap: wrap; padding: 8px; }
+    .sidebar-menu li a { font-size: 12px; padding: 7px 10px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .dashboard-grid-fixed { grid-template-columns: 1fr !important; }
+    .s-nav { padding: 0 16px; }
+    .s-nav-links { gap: 2px; }
+    .s-nav-links a { font-size: 12px; padding: 6px 10px; }
+}
+
+/* ============================================================
+   TEACHER BODY — Extra text contrast fixes
+   ตัวหนังสือทุกชนิดต้องอ่านออกบน dark background
+   ============================================================ */
+
+/* ข้อความ inline style ที่ยังใช้สี hardcode */
+body.teacher-body [style*="color: #333"],
+body.teacher-body [style*="color:#333"] {
+    color: rgba(255,255,255,0.88) !important;
+}
+body.teacher-body [style*="color: #555"],
+body.teacher-body [style*="color:#555"] {
+    color: rgba(255,255,255,0.65) !important;
+}
+body.teacher-body [style*="color: #666"],
+body.teacher-body [style*="color:#666"] {
+    color: rgba(255,255,255,0.60) !important;
+}
+body.teacher-body [style*="color: #777"],
+body.teacher-body [style*="color:#777"] {
+    color: rgba(255,255,255,0.42) !important;
+}
+body.teacher-body [style*="color: #888"],
+body.teacher-body [style*="color:#888"] {
+    color: rgba(255,255,255,0.35) !important;
+}
+body.teacher-body [style*="color: gray"],
+body.teacher-body [style*="color:gray"] {
+    color: rgba(255,255,255,0.40) !important;
+}
+
+/* border-bottom hardcode */
+body.teacher-body [style*="border-bottom: 1px solid #eee"],
+body.teacher-body [style*="border-bottom:1px solid #eee"] {
+    border-bottom-color: rgba(255,255,255,0.08) !important;
+}
+body.teacher-body [style*="border-top: 1px solid #eee"],
+body.teacher-body [style*="border-top:1px solid #eee"] {
+    border-top-color: rgba(255,255,255,0.08) !important;
+}
+
+/* ลิงก์ใน content-box */
+body.teacher-body .content-box a:not(.btn-add):not(.btn-edit):not(.btn-delete):not(.btn-submit):not(.btn-back):not(.btn-view) {
+    color: #a5b4fc;
+}
+
+/* ข้อความ "กำลังโหลด..." */
+body.teacher-body p[style*="color:gray"],
+body.teacher-body p[style*="color: gray"] {
+    color: rgba(255,255,255,0.38) !important;
+}
+
+/* Chart.js wrapper — label axis สีขาว (ต้องใส่ใน JS แต่ให้ wrapper ดูดี) */
+body.teacher-body #quiz-chart-wrapper {
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--r-sm);
+    padding: 8px 4px;
+}
+
+/* tip/hint box — border-top สี orange ชัดขึ้นบน dark */
+body.teacher-body .content-box[style*="border-top-color: #f39c12"] {
+    border-top-color: #f59e0b !important;
+    background: rgba(245,158,11,0.05) !important;
+    border-color: rgba(245,158,11,0.18) !important;
+}
+
+/* small note ใต้ input */
+body.teacher-body small[style*="color: #888"],
+body.teacher-body small[style*="color:#888"] {
+    color: rgba(255,255,255,0.38) !important;
+}
+
+/* h3 ของ content-box ที่มี inline style */
+body.teacher-body .content-box h3[style],
+body.teacher-body .content-box > h3 {
+    color: rgba(255,255,255,0.88) !important;
+}
+
+/* ป้องกัน stat-card h3/p สีหาย (stat-cards ใช้ color:white อยู่แล้ว) */
+body.teacher-body .stat-card h3,
+body.teacher-body .stat-card p { color: white !important; }
+
+/* ข้อความใน dashboard recent-activity */
+body.teacher-body .recent-activity h3 { color: rgba(255,255,255,0.85) !important; }
+
+/* เส้น hr ใน tip box */
+body.teacher-body hr { border-color: rgba(255,255,255,0.08) !important; }
+
+/* ============================================================
+   WELCOME BANNER — Skooldio-style gradient card (หน้า dashboard นักเรียน)
+   ============================================================ */
+.welcome-banner {
+    background: linear-gradient(135deg, #4f46e5 0%, #0d9488 65%, #059669 100%);
+    border-radius: var(--r-lg);
+    padding: 30px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99,102,241,0.35);
+    animation: fadeUp 0.45s ease both;
+}
+/* วงกลม deco ด้านหลัง */
+.welcome-banner::before {
+    content: '';
+    position: absolute;
+    width: 320px; height: 320px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    top: -100px; right: -60px;
+    pointer-events: none;
+}
+.welcome-banner::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+    bottom: -80px; left: 38%;
+    pointer-events: none;
+}
+.welcome-banner-left { position: relative; z-index: 1; }
+.welcome-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.88);
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 13px;
+    border-radius: var(--r-full);
+    margin-bottom: 13px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+.welcome-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 7px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+.welcome-name span {
+    display: inline-block;
+    background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.welcome-sub {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.58);
+    margin: 0;
+}
+.welcome-deco {
+    font-size: 80px;
+    opacity: 0.18;
+    position: relative;
+    z-index: 1;
+    transform: rotate(-12deg);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   COURSE CARD — รายการคอร์สในหน้า Dashboard นักเรียน
+   (แทน .data-item ธรรมดา ให้สวยแบบ Skooldio)
+   ============================================================ */
+.s-course-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-md);
+    padding: 15px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s var(--ease);
+    animation: fadeUp 0.3s ease both;
+}
+.s-course-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(99,102,241,0.3);
+    transform: translateX(3px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.s-course-card-icon {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.22), rgba(20,184,166,0.22));
+    border: 1px solid rgba(99,102,241,0.22);
+    border-radius: var(--r-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+.s-course-card-body { flex: 1; min-width: 0; }
+.s-course-card-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.s-course-card-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.38);
+}
+.s-enrolled-pill {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: var(--c-emerald-500);
-    color: white;
-    border: none;
-    padding: 7px 16px;
+    background: rgba(16,185,129,0.14);
+    color: #34d399;
+    border: 1px solid rgba(16,185,129,0.25);
+    padding: 5px 13px;
     border-radius: var(--r-full);
-    cursor: pointer;
-    font-size: 12.5px;
-    font-weight: 600;
-    font-family: inherit;
-    white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(16,185,129,0.3);
-    transition: all var(--dur) var(--ease);
-}
-.btn-enroll:hover { background: var(--c-emerald-600); transform: translateY(-1px); }
-.btn-enroll:disabled { background: #9ca3af; cursor: not-allowed; transform: none; box-shadow: none; }
-
-/* ---------- 28. VISUAL ENHANCEMENTS ---------- */
-
-/* === Login: floating dots พื้นหลัง === */
-.login-bg {
-    background:
-        radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(20,184,166,0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 80%, rgba(244,63,94,0.1)  0%, transparent 50%),
-        #0e1027;
-}
-
-/* จุดลอยพื้นหลัง login */
-.login-bg::before,
-.login-bg::after {
-    animation-duration: 25s;
-}
-
-/* dot เล็กๆ กระจาย */
-@keyframes floatDot {
-    0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.4; }
-    33%       { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.7; }
-    66%       { transform: translateY(15px) translateX(-20px) scale(0.9); opacity: 0.3; }
-}
-
-.login-box::before {
-    content: '✦';
-    position: absolute;
     font-size: 12px;
-    color: rgba(99,102,241,0.3);
-    top: -30px; right: 40px;
-    animation: floatDot 4s ease-in-out infinite;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.login-box::after {
-    content: '✦';
-    position: absolute;
-    font-size: 8px;
-    color: rgba(20,184,166,0.3);
-    bottom: -25px; left: 50px;
-    animation: floatDot 5s ease-in-out infinite reverse;
-    pointer-events: none;
+/* ============================================================
+   PROGRESS ITEM — lesson item with progress bar (หน้า progress)
+   ============================================================ */
+.s-progress-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 3px solid rgba(99,102,241,0.5);
+    border-radius: var(--r-sm);
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+    animation: fadeUp 0.3s ease both;
+}
+.s-progress-item:hover { background: rgba(255,255,255,0.06); }
+.s-progress-item.done  { border-left-color: rgba(16,185,129,0.6); }
+.s-progress-item.going { border-left-color: rgba(245,158,11,0.6); }
+
+.s-progress-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+}
+.s-progress-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.88);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.s-progress-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 11px;
+    border-radius: var(--r-full);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.s-progress-badge.done  {
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
+    border: 1px solid rgba(16,185,129,0.25);
+}
+.s-progress-badge.going {
+    background: rgba(245,158,11,0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245,158,11,0.25);
 }
 
-/* === Sidebar: active item glow === */
-.sidebar-menu li.active a {
-    background: rgba(99,102,241,0.18);
-    color: #c7d2fe;
-    border-left: 3px solid #6366f1;
-    box-shadow: inset 0 0 20px rgba(99,102,241,0.08);
-    position: relative;
+/* Progress bar */
+.s-progress-bar-wrap {
+    height: 5px;
+    background: rgba(255,255,255,0.07);
+    border-radius: var(--r-full);
+    overflow: hidden;
 }
-
-/* dot สีเขียวกะพริบที่ sidebar header */
-.sidebar-header::after {
-    animation: pulse 2s ease-in-out infinite;
+.s-progress-bar-fill {
+    height: 100%;
+    border-radius: var(--r-full);
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.s-progress-bar-fill.done  { background: linear-gradient(90deg, #10b981, #34d399); }
+.s-progress-bar-fill.going { background: linear-gradient(90deg, #f59e0b, #fbbf24); width: 45% !important; }
 
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 4px var(--c-emerald-400); opacity: 1; }
-    50%       { box-shadow: 0 0 10px var(--c-emerald-400), 0 0 20px rgba(52,211,153,0.3); opacity: 0.7; }
+/* ============================================================
+   COURSE SECTION HEADER — หน้า student-courses
+   ============================================================ */
+.s-section-heading {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-
-/* === Stat cards: shimmer on hover === */
-.stat-card::before {
+.s-section-heading::after {
     content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(255,255,255,0.15) 50%,
-        transparent 60%
-    );
-    background-size: 200% 100%;
-    background-position: 200% 0;
-    transition: background-position 0.6s ease;
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.07);
 }
 
-.stat-card:hover::before {
-    background-position: -200% 0;
+/* ============================================================
+   EMPTY STATE — สวยแบบ Skooldio
+   ============================================================ */
+.s-empty {
+    text-align: center;
+    padding: 56px 24px;
+}
+.s-empty-icon {
+    font-size: 52px;
+    margin-bottom: 14px;
+    opacity: 0.35;
+    display: block;
+    filter: grayscale(0.2);
+}
+.s-empty-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+}
+.s-empty-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.28);
+    line-height: 1.8;
+    margin: 0;
 }
 
-/* === Header section: subtle gradient border === */
-.header-section::before {
-    background: linear-gradient(180deg,
-        var(--c-indigo-500) 0%,
-        var(--c-teal-500)   50%,
-        var(--c-emerald-500) 100%
-    );
-    animation: borderFlow 3s ease-in-out infinite alternate;
+/* ============================================================
+   INSTRUCTOR BADGE — แสดงชื่อผู้สอนในคอร์ส
+   ============================================================ */
+.s-instructor-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 3px;
+}
+.s-instructor-badge::before {
+    content: '👨‍🏫';
+    font-size: 11px;
 }
 
-@keyframes borderFlow {
-    from { opacity: 0.7; }
-    to   { opacity: 1; }
+/* ============================================================
+   VIDEO / PDF badge inline
+   ============================================================ */
+.s-badge-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(14,165,233,0.14);
+    color: #38bdf8;
+    border: 1px solid rgba(14,165,233,0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
 }
-
-/* === Content box: hover lift === */
-.content-box {
-    transition: box-shadow 0.25s var(--ease);
+.s-badge-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(245,158,11,0.14);
+    color: #fbbf24;
+    border: 1px solid rgba(245,158,11,0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 4px;
 }
-.content-box:hover {
-    box-shadow: var(--shadow-md);
-}
-
-/* === Menu cards: icon bounce on hover === */
-.menu-card:hover .menu-icon {
-    animation: iconBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes iconBounce {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.25) rotate(-5deg); }
-    70%  { transform: scale(0.95) rotate(3deg); }
-    100% { transform: scale(1) rotate(0deg); }
-}
-
-/* === Score number: rainbow color เมื่อได้ 100% === */
-.score-number[data-perfect="true"] {
-    background: linear-gradient(135deg, #10b981, #6366f1, #f59e0b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: rainbow 2s linear infinite;
-    background-size: 200% auto;
-}
-
-@keyframes rainbow {
-    from { background-position: 0% center; }
-    to   { background-position: 200% center; }
-}
-
-/* === Table rows: smooth highlight === */
-.score-table tbody tr {
-    transition: background var(--dur) var(--ease);
-}
-
-/* === Btn hover: subtle glow === */
-.btn-submit:hover {
-    box-shadow: 0 4px 20px rgba(99,102,241,0.4), 0 0 0 2px rgba(99,102,241,0.1);
-}
-
-.btn-add:hover {
-    box-shadow: 0 4px 16px rgba(16,185,129,0.45), 0 0 0 2px rgba(16,185,129,0.1);
-}
-
-/* === Progress bar ใน lesson items === */
-.lesson-item {
-    position: relative;
-}
-
-/* สิ้นสุด Visual Enhancements */

@@ -12,8 +12,12 @@ window.onload = async () => {
         await loadMyEnrollments(user.student_id);
         await loadMyProgress(user.student_id);
     } else {
-        document.getElementById('my-courses').innerHTML = 
-            '<p style="text-align:center; color:gray;">ไม่พบข้อมูลนักเรียน กรุณาติดต่อผู้ดูแลระบบ</p>';
+        document.getElementById('my-courses').innerHTML =
+            `<div class="s-empty">
+                <span class="s-empty-icon">⚠️</span>
+                <div class="s-empty-title">ไม่พบข้อมูลนักเรียน</div>
+                <p class="s-empty-sub">กรุณาติดต่อผู้ดูแลระบบ</p>
+            </div>`;
     }
 }
 
@@ -30,19 +34,27 @@ const loadMyEnrollments = async (studentId) => {
         let htmlData = '';
         for (let i = 0; i < myEnrollments.length; i++) {
             let enroll = myEnrollments[i];
-            htmlData += `<div class="data-item">
-                <div>
-                    <strong>${i + 1}. ${enroll.course_title}</strong>
-                    <span style="color: #7f8c8d; font-size: 13px; margin-left: 10px;">
-                        ลงทะเบียนเมื่อ: ${new Date(enroll.enrolled_at).toLocaleDateString('th-TH')}
-                    </span>
+            // Skooldio-style: s-course-card แทน data-item ธรรมดา
+            const icons = ['📚','🎓','📖','🎬','📝','🔬','💡','🌐'];
+            const icon  = icons[i % icons.length];
+            const dateStr = new Date(enroll.enrolled_at).toLocaleDateString('th-TH');
+            htmlData += `<div class="s-course-card">
+                <div class="s-course-card-icon">${icon}</div>
+                <div class="s-course-card-body">
+                    <div class="s-course-card-title">${enroll.course_title}</div>
+                    <div class="s-course-card-meta">ลงทะเบียนเมื่อ ${dateStr}</div>
                 </div>
-                <span style="background: #d4edda; color: #155724; padding: 4px 10px; border-radius: 15px; font-size: 13px;">✅ ลงทะเบียนแล้ว</span>
-            </div>`
+                <span class="s-enrolled-pill">✅ ลงทะเบียนแล้ว</span>
+            </div>`;
         }
 
         if (myEnrollments.length === 0) {
-            htmlData = '<p style="text-align:center; color:gray;">ยังไม่ได้ลงทะเบียนคอร์สใดๆ</p>';
+            // Empty state แบบ Skooldio
+            htmlData = `<div class="s-empty">
+                <span class="s-empty-icon">📭</span>
+                <div class="s-empty-title">ยังไม่ได้ลงทะเบียนคอร์สใดๆ</div>
+                <p class="s-empty-sub">ไปที่ "คอร์สของฉัน" เพื่อขอลงทะเบียนคอร์สที่สนใจ</p>
+            </div>`;
         }
 
         document.getElementById('my-courses').innerHTML = htmlData;
@@ -70,20 +82,31 @@ const loadMyProgress = async (studentId) => {
         let htmlData = '';
         for (let i = 0; i < myProgress.length; i++) {
             let prog = myProgress[i];
-            let statusBadge = prog.is_completed
-                ? `<span style="background: #d4edda; color: #155724; padding: 4px 10px; border-radius: 15px; font-size: 13px;">✅ เรียนจบแล้ว</span>`
-                : `<span style="background: #fff3e0; color: #e65100; padding: 4px 10px; border-radius: 15px; font-size: 13px;">⏳ กำลังเรียน</span>`;
+            // Skooldio-style: s-progress-item พร้อม progress bar
+            const isDone   = prog.is_completed;
+            const cls      = isDone ? 'done' : 'going';
+            const badge    = isDone
+                ? `<span class="s-progress-badge done">✅ เรียนจบแล้ว</span>`
+                : `<span class="s-progress-badge going">⏳ กำลังเรียน</span>`;
+            const barWidth = isDone ? '100%' : '45%';
 
-            htmlData += `<div class="data-item">
-                <div>
-                    <strong>${prog.lesson_title}</strong>
+            htmlData += `<div class="s-progress-item ${cls}">
+                <div class="s-progress-item-top">
+                    <span class="s-progress-label">${prog.lesson_title}</span>
+                    ${badge}
                 </div>
-                ${statusBadge}
-            </div>`
+                <div class="s-progress-bar-wrap">
+                    <div class="s-progress-bar-fill ${cls}" style="width:${barWidth};"></div>
+                </div>
+            </div>`;
         }
 
         if (myProgress.length === 0) {
-            htmlData = '<p style="text-align:center; color:gray;">ยังไม่มีประวัติการเรียน</p>';
+            htmlData = `<div class="s-empty">
+                <span class="s-empty-icon">📈</span>
+                <div class="s-empty-title">ยังไม่มีประวัติการเรียน</div>
+                <p class="s-empty-sub">เริ่มเรียนบทแรกจากเมนู "คอร์สของฉัน" ได้เลย</p>
+            </div>`;
         }
 
         document.getElementById('my-progress').innerHTML = htmlData;

@@ -12,6 +12,7 @@ services:
       - "8820:3306"
     volumes:
       - mysql_data_course:/var/lib/mysql
+      - ../sql:/docker-entrypoint-initdb.d
     networks:
       - course_network
     restart: always

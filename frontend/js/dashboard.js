@@ -97,14 +97,14 @@ const loadQuizChart = async () => {
                         ticks: {
                             callback: val => val + '%',
                             font: { family: 'DM Sans, sans-serif', size: 12 },
-                            color: '#8b90b8'
+                            color: 'rgba(255,255,255,0.5)'  // แก้จาก '#8b90b8' → ให้อ่านออกบน dark background
                         },
-                        grid: { color: 'rgba(0,0,0,0.04)' }
+                        grid: { color: 'rgba(255,255,255,0.06)' }  // แก้จาก rgba(0,0,0,0.04) → ให้เส้น grid มองเห็นบน dark
                     },
                     x: {
                         ticks: {
                             font: { family: 'DM Sans, sans-serif', size: 13 },
-                            color: '#4a4f72',
+                            color: 'rgba(255,255,255,0.65)',  // แก้จาก '#4a4f72' → ให้ label บทเรียนอ่านออกบน dark
                             maxRotation: 20
                         },
                         grid: { display: false }
@@ -117,7 +117,7 @@ const loadQuizChart = async () => {
                         const ctx2 = chart.ctx;
                         ctx2.save();
                         ctx2.font = 'bold 13px DM Sans, sans-serif';
-                        ctx2.fillStyle = '#4a4f72';
+                        ctx2.fillStyle = 'rgba(255,255,255,0.85)';  // แก้จาก '#4a4f72' → ตัวเลข % บนหัวแท่งอ่านออกบน dark
                         ctx2.textAlign = 'center';
                         ctx2.textBaseline = 'bottom';
                         chart.data.datasets.forEach((ds, i) => {

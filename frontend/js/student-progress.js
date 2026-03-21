@@ -19,20 +19,31 @@ const loadMyProgress = async (studentId) => {
         let htmlData = '';
         for (let i = 0; i < myProgress.length; i++) {
             let prog = myProgress[i];
-            let statusBadge = prog.is_completed
-                ? `<span style="background: #d4edda; color: #155724; padding: 4px 10px; border-radius: 15px; font-size: 13px;">✅ เรียนจบแล้ว</span>`
-                : `<span style="background: #fff3e0; color: #e65100; padding: 4px 10px; border-radius: 15px; font-size: 13px;">⏳ กำลังเรียน</span>`;
+            // Skooldio-style: s-progress-item พร้อม progress bar
+            const isDone   = prog.is_completed;
+            const cls      = isDone ? 'done' : 'going';
+            const badge    = isDone
+                ? `<span class="s-progress-badge done">✅ เรียนจบแล้ว</span>`
+                : `<span class="s-progress-badge going">⏳ กำลังเรียน</span>`;
+            const barWidth = isDone ? '100%' : '45%';
 
-            htmlData += `<div class="progress-item">
-                <div>
-                    <strong>${prog.lesson_title}</strong>
+            htmlData += `<div class="s-progress-item ${cls}">
+                <div class="s-progress-item-top">
+                    <span class="s-progress-label">${prog.lesson_title}</span>
+                    ${badge}
                 </div>
-                ${statusBadge}
-            </div>`
+                <div class="s-progress-bar-wrap">
+                    <div class="s-progress-bar-fill ${cls}" style="width:${barWidth};"></div>
+                </div>
+            </div>`;
         }
 
         if (myProgress.length === 0) {
-            htmlData = '<p style="text-align:center; color:gray;">ยังไม่มีประวัติการเรียน</p>';
+            htmlData = `<div class="s-empty">
+                <span class="s-empty-icon">📈</span>
+                <div class="s-empty-title">ยังไม่มีประวัติการเรียน</div>
+                <p class="s-empty-sub">เริ่มเรียนบทแรกจากเมนู "คอร์สของฉัน" ได้เลย</p>
+            </div>`;
         }
 
         document.getElementById('my-progress').innerHTML = htmlData;

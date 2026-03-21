@@ -46,8 +46,8 @@ const loadAllCourses = async (studentId) => {
                     ? `<div class="lesson-item" style="color:var(--text-3);">ยังไม่มีบทเรียน</div>`
                     : lessons.map(lesson => {
                         let badges = '';
-                        if (lesson.video_url) badges += '<span style="background:#e0f2fe;color:#0369a1;padding:2px 8px;border-radius:10px;font-size:11px;margin-left:6px;">🎬 วิดีโอ</span>';
-                        if (lesson.file_url)  badges += '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px;margin-left:4px;">📄 PDF</span>';
+                        if (lesson.video_url) badges += '<span style="" class="s-badge-video">🎬 วิดีโอ</span>';
+                        if (lesson.file_url)  badges += '<span style="" class="s-badge-pdf">📄 PDF</span>';
 
                         const enc = encodeURIComponent(JSON.stringify({
                             title: lesson.title, content: lesson.content || '',
@@ -108,33 +108,31 @@ const loadAllCourses = async (studentId) => {
         let html = '';
 
         if (approvedHTML) {
-            html += `<h3 style="margin:0 0 12px; font-size:15px; color:var(--text-2);">📚 คอร์สของฉัน</h3>${approvedHTML}`;
+            html += `<div class="s-section-heading">📚 คอร์สของฉัน</div>${approvedHTML}`;
         }
 
         if (pendingHTML) {
             html += `<div class="content-box" style="margin-top:20px;">
-                <h3 style="margin:0 0 12px; font-size:15px; color:#d97706;">⏳ รอการอนุมัติจากครู</h3>
+                <div class="s-section-heading">⏳ รอการอนุมัติจากครู</div>
                 ${pendingHTML}
             </div>`;
         }
 
         if (availableHTML) {
             html += `<div class="content-box" style="margin-top:20px;">
-                <h3 style="margin:0 0 12px; font-size:15px; color:var(--text-2); border-bottom:1px solid var(--border); padding-bottom:10px;">
-                    🔍 คอร์สที่เปิดรับสมัคร
-                </h3>
+                <div class="s-section-heading">🔍 คอร์สที่เปิดรับสมัคร</div>
                 ${availableHTML}
             </div>`;
         }
 
-        if (!html) html = '<p style="text-align:center; color:gray; padding:40px 0;">ยังไม่มีคอร์สในระบบ</p>';
+        if (!html) html = `<div class="s-empty"><span class="s-empty-icon">📭</span><div class="s-empty-title">ยังไม่มีคอร์สในระบบ</div><p class="s-empty-sub">รอครูเพิ่มคอร์สก่อนนะครับ</p></div>`;
 
         document.getElementById('my-courses').innerHTML = html;
 
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('my-courses').innerHTML =
-            '<p style="color:red; text-align:center;">ไม่สามารถโหลดข้อมูลได้</p>';
+            `<div class="s-empty"><span class="s-empty-icon">⚠️</span><div class="s-empty-title">ไม่สามารถโหลดข้อมูลได้</div><p class="s-empty-sub">กรุณาลองใหม่อีกครั้ง</p></div>`;
     }
 }
 
@@ -171,7 +169,7 @@ const openLesson = (encoded) => {
 
     document.getElementById('modal-content').innerHTML = lesson.content
         ? `<div class="modal-content-text">${lesson.content}</div>`
-        : '<p style="color:gray; font-size:14px;">ยังไม่มีเนื้อหาข้อความ</p>';
+        : '<p style="color:rgba(255,255,255,0.35); font-size:14px; padding:12px 0;">ยังไม่มีเนื้อหาข้อความ</p>';
 
     document.getElementById('lesson-modal').classList.add('active');
 }
